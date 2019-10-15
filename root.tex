@@ -1,0 +1,60 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphics} % for pdf, bitmapped graphics files
+\usepackage{epsfig} % for postscript gr
+\usepackage{mathptmx} % assumes new font selection scheme installed
+\usepackage{times} % assumes new font selection scheme installed
+\usepackage{amsmath} % assumes amsmath package installed
+\usepackage{amssymb}  % assumes amsmath package installed
+% \usepackage{subfig}
+\usepackage{siunitx}
+\usepackage{textcomp}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{subcaption}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{mathtools} % for prettier math
+% \usepackage[
+%   separate-uncertainty = true,
+%   multi-part-units = repeat
+% ]{siunitx} % for +/- symbol (\pm)
+\usepackage{algorithm}
+\usepackage{algpseudocode} % pseudocode
+\algtext*{EndWhile}% Remove "end while" text
+\algtext*{EndIf}% Remove "end if" text
+\algtext*{EndFor}% Remove "end if" text
+\algtext*{EndProcedure}
+\usepackage{epigraph}
+
+% Biber
+\usepackage[backend=biber,      % replace bibtex with biber (bibliography backend engine)
+    style=ieee,
+    bibstyle=ieee,              % write literature lists in IEEE style
+    % citestyle=numeric-comp,     % \cite uses a numeric key
+    sortcites=true,   
+    giveninits=true,            % use caps    
+    backref=false
+]{biblatex}
+% \renewbibmacro{in:}{}
+\addbibresource{library.bib}
+
+\title{Viability in State-Action Space: \\
+Connecting Mechanics, Control and Learning.}
+\author{Steve Heim}
+\date{September 2019}
+
+\begin{document}
+
+\maketitle
+\input{summary_eng.tex}
+\input{summary_de.tex}
+
+\input{chapters/introduction.tex}
+\input{chapters/prelims}
+\input{chapters/empirical}
+\input{chapters/vibly_theory}
+\input{chapters/vibly_applied}
+\input{chapters/discussion}
+% \chapter*{Appendix of papers}
+\end{document}

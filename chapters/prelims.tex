@@ -1,0 +1,21 @@
+% !TEX root = root.tex
+
+\chapter{Preliminaries}
+We introduce here relevant background in a concise manner.
+
+\section{Reinforcement Learning}
+Reinforcement learning is cool. Introduce MDPs. Some notes on terminology... cost is reward.
+\subsection{Model-free and model-based}
+RL is just DPA, done model free. It has these advantages. It is basically trying to learn to negotiate the reward-landscape. It is, however, inefficient and does not extrapolate well. Models should be used when they are good.
+\subsection{Shaping}
+In RL, shaping refers to shaping the reward-landscape, in order to make it easier to for a learning agent to learn on.
+Most of the effort in this field is called curriculum design: the agent learns on easier tasks which inform it about the original policy.
+There can also be shaping by modifying the reward function. This can be a temporary, handcrafted change, or it can be IRL.
+It is akin to solving a convex approximation of the cost-function in model-based optimization. As RL often takes a model-free approach, usually there is no emphasis on lower and upper bounds (as there is in model-based optimization).
+Mostly focused on changing $R$ in the MDP, in some cases a combination of $R$ and $P$.
+
+% \section{Template Models}
+% To explore 
+
+\section{Viability and Backreachability}
+Introduce viability and backreachability.
