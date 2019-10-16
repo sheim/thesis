@@ -1,3 +1,34 @@
 % !TEX root = root.tex
 
-\chapter{Discussion and Outlook}
+\chapter{Discussion}
+% Results and discussion, 15-25 pages
+
+For detailed discussion and contribution of each paper, we refer to the papers themselves. Here we will discuss the common themes, the connections between them, and what the results of this PhD mean for future work.
+
+\section{Designing robots to sample gradients}
+- repeating theme: robustness of sampling a reward improves our ability to learn. 
+- this is regardless of the search space: it can be parameters of a controller or directly on the action space
+- We should therefore design robots to be able to sample rewards better. The common approach is curriculum learning, we show however that shaping the natural dynamics can play an important role. This was already shown by TEDRAKE et al., and RANDLOV
+- It is, however, difficult to do that in practice. Armed with this knowledge, we can use it as an intuitive guideline in 
+- To obtain more rigorous principles that can be scaled up to practical problems is an open problem. Here are some IDEAS
+
+\section{Designing robots that can fail}
+
+- Our work shows both the importance of avoiding failure to learn WHEELS, BEYOND, but also the importance of being able to visit failure states occasionally UNVIABLE. Our work on safe learning is good for systems where failures are costly, but not critical LEARNABLE.
+- when designing robots, this stresses the importance of being mechanically sturdy, such that it is possible to visit failure states without permanent damage. This property can be seen in many production-level machines.
+- The main reason why failure states pose a problem to learning, is that in most cases, any failure returns no reward and therefore provides no learning gradient. This is why designing a robot that can fail with grace can greatly help learn.
+
+\section{Leveraging dynamics models}
+I have focused on model-free methods, for a very deliberate reason: I believe that model-based optimal control is a fantastically powerful tool, and it is too tempting to try to reformulate any problem as an optimization problem.
+At the same time, I believe that robustness is of paramount importance and has been overshadowed by the optimality perspective.
+Taking a completely (or nearly) model-free approach forces us to deal directly with robustness, as we have no assumed structure to exploit.
+It has strongly motivated the development of new, mathematically simple tools BEYOND, and develop clear conditions for convergence as well as practical guidelines for implementation SAFETY. 
+% For example, contemporary work on safe learning based on viability make use of relatively sophisticated mathematical tools such as differential inclusions AUBIN, barrier functions EGERSTEDT-AMES, or solving Hamilton-Jacobi-Issacs equations TOMLIN.
+Now that the fundamentals have been rigorously developed for the model-free case, there are several avenues to leverage a dynamics model, especially to scale up these tools to higher dimensions.
+- inner/outer approximations. Forward positive-invariant sets, SOS programming, etc. Extend this to Q-space for our approach.
+- a predictive model can help generate approximating sets more efficiently. In particular, contemporaneously learning a model (or refining an existing model) of the dynamics while learning a model of the safety measure should greatly improve  For example, in LEARNABLE, being able to predict future states would allow us to directly use the safety measure at the predicted state rather than the measure in Q-space. Furthermore, when reaching a state for which the safety uncertainty is high, we could use the predictive model to safely return to states with less uncertainty. On the other hand, using the safety measure to constrain active search of the state-space would improve efficiency, as the model-learning does not need to explore regions that are unsafe and thus unimportant.
+- Finally, a computing the one-step back-reachable step should allow entire sets to be updated at a time.
+
+\section{Parallels Model Predictive Control}
+Similar concepts exist in the Model Predictive control (MPC) literature. The infinite step robust positive invariant set (RPI) is essentially the robust set from BEYOND. Scaling, as in our case, is the main bottle-neck, and currently the only mature tools are limited to linear systems.
+We suggest that using heuristics would be good though.
