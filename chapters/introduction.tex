@@ -1,4 +1,20 @@
-% !TEX root = root.tex
+% !TEX root = ../root.tex
 
 \chapter{Introduction}
-Mobility is a driver of revolutions. Needs to be fast, cheap and reliable. Robustness is always a key for this.
+\epigraph{To tell the truth, we don't do it because it is useful, but because it is amusing.}{Archibald Vivian Hill}
+
+This cumulative thesis presents the four first-author, peer-reviewed papers I published during my phd studies in the Dynamic Locomotion Group of the Max Planck Institute for Intelligent Systems, Stuttgart. The main contribution is an extension of viability theory into state-action space, and a measure over viable sets in this space. These sets formally evaluate the inherent robustness of a system and perform safe model-free learning.
+
+\section{Overall Motivation}
+
+Dynamics are most certainly one of the most fascinating domains to study, and motion is dynamics embodied. To observe motion, whether that of bird of prey gracefully switching between flapping and gliding, or the oscillating ebb and flow of water swirling around an unusual rock formation in a river, is a pleasure in and of itself. And to understand motion, even more so. \par
+If this is not motivation enough, motion and mobility is entrenched in every aspect of of modern society. It is our ability to move people, goods and information quickly, cheaply, efficiently and reliably that enables a global economy and global society. The advent of mobile robots that can automate mobility promises to change once again scales of what is considered near and far: even without increasing the speed of mobility, the time involving the user can be reduced to virtually nil. Nonetheless, for this to become an every-day reality requires a level of robustness and reliability that is so far only achieved in controlled laboratory settings. \par
+Learning from data can perhaps help here, but we lack some fundamental understanding. blah blah.
+
+\section{Objectives}
+How can we enable model-free learning directly in hardware?
+We pose this question, not because we think it is the most useful approach to use in practice: whenever a decent model of the dynamics is available it should be leveraged, both to design controllers and for simulations. However, this question forces our answers to explicitly address our motivation of pushing robustness, taking into consideration the system design, and not relying on massive amounts of data instead of formal understanding.
+
+- formality of dynamics comes from control theory. However, this is usually limited to design of the controller.
+- There is also extensive work in bifurcation diagrams etc. These typically either assume a passive system (e.g. no control), or manage the controller by assuming an optimal controller. This clearly cannot hold for a learning agent.
+- most tools are centered around convergence.
