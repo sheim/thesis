@@ -5,20 +5,43 @@
 
 For detailed discussion and contribution of each paper, we refer to the papers themselves. Here we will discuss the common themes, the connections between them, and what the results of this PhD mean for future work.
 
-\section{Designing robots to sample gradients}
-- repeating theme: robustness of sampling a reward improves our ability to learn. 
-- this is regardless of the search space: it can be parameters of a controller or directly on the action space
-- We should therefore design robots to be able to sample rewards better. The common approach is curriculum learning, we show however that shaping the natural dynamics can play an important role. This was already shown by TEDRAKE et al., and RANDLOV
-- It is, however, difficult to do that in practice. Armed with this knowledge, we can use it as an intuitive guideline in 
-- To obtain more rigorous principles that can be scaled up to practical problems is an open problem. Here are some IDEAS
+\section{Designing robots that can avoid failure}
+To be able to learn, an agent must be able to sample information that is useful for the learning process. In most cases, this means to sample a gradient in the reward function.
+However, being able to sample gradients is often a challenge consistently, especially in robotics. This is often addressed with a focus on the algorithmic side: common solutions include reward shaping, designing better representations, and curriculum learning. An often overlooked approach is by designing the system itself. While this approach has already been justified both in practice~\cite{tedrake2005learning} and with some theoretical results~\cite{randlov2000shaping}, the results are not extensive and have not been further elaborated. \par
+My work shows the major role that the system design itself plays an important role in this, both in practice~\cite{heim2018shaping} and in theory~\cite{heim2019beyond}.
+In particular, I explore and formalize the case of robustness against failures. Not only do failures potentially harm the robot, the world, and require time-consuming resets, they often provides only marginally useful information. Indeed, drastic failures and borderline failures often return the same reward. In order to leverage learning control, new robot designs should directly consider the robustness of the system, in addition to performance, manufacturing and maintenance costs, etc. \par
+This is particularly the case for general-purpose robots that do not have pre-specified tasks. These types of robots are becoming more common as robots become more common-place both in the workplace and in society as a whole.
+Examples include the Baxter robot, which are specifically designed so their task can be quickly redefined by novice users, or the newly launched (at the time of writing) Spot quadruped by Boston Dynamics (see \url{https://www.bostondynamics.com/spot}).
+In these cases, it can still be straightforward to define sets of failure states, which are often the same regardless of the task. These failure sets can therefore be defined at the early design stage, and the robot can be designed with to be robust to them. \par
+
+For example, legs with some built-in mechanical stiffness in the form of springs are known to have self-stabilizing properties SPROWITZ. Although mechanical springs have the drawback of being difficult to tune, this may be an acceptable trade-off. \par
+
+In a similar manner, when designing the low-level controller for an impedance-controlled robot, it may be desirable to begin with low gains. This would presumably improve the overall robustness of a high-level control policy, at the cost of lowering the performance of the optimal policy. In a similar manner to~\textcite{heim2018shaping}, the gains can then be slowly tuned to more aggressive values as the learning progressed. \par
+
+\textcite{heim2019beyond} formalizes robustness inherent to a system by computing viable and robust sets. However, computationally tractable tools to compute these sets are still lacking. Although hardware design is still very much an art, guided by experience and intuition, it would be desirable to at least partially automate design and introduce more formalism. 
+\par
+Since this is for design, it can be offline. The requirements for efficiency are not quite as high, but nonetheless there.
+\par
+Possibilities would include HJI tools, optimization tools such as SOS.
+%%%%
+% - repeating theme: robustness of sampling a reward improves our ability to learn. 
+% - this is regardless of the search space: it can be parameters of a controller or directly on the action space
+% - We should therefore design robots to be able to sample rewards better. The common approach is curriculum learning, we show however that shaping the natural dynamics can play an important role. This was already shown by TEDRAKE et al., and RANDLOV
+% - It is, however, difficult to do that in practice. Armed with this knowledge, we can use it as an intuitive guideline in 
+% - To obtain more rigorous principles that can be scaled up to practical problems is an open problem. Here are some IDEAS
 
 \section{Designing robots that can fail}
+It is also important that robots are designed to be able to occasionally fail. Although this may seem incongruous with the previous subsection, it turns out to be important for two reasons. \par
 
-- Our work shows both the importance of avoiding failure to learn WHEELS, BEYOND, but also the importance of being able to visit failure states occasionally UNVIABLE. Our work on safe learning is good for systems where failures are costly, but not critical LEARNABLE.
-- when designing robots, this stresses the importance of being mechanically sturdy, such that it is possible to visit failure states without permanent damage. This property can be seen in many production-level machines.
-- The main reason why failure states pose a problem to learning, is that in most cases, any failure returns no reward and therefore provides no learning gradient. This is why designing a robot that can fail with grace can greatly help learn.
+First reason, being able to guarantee safety requires perfect models. It largely defeats the purpose of learning. LEARNABLE. Robots should be allowed to visit (at least some) failure states. This not only means the robot should be sturdy enough to survive failures, but also that a failure does not cause unacceptable damage to the user or environment, and it is possible to reset the robot quickly and easily. Just as in curriculum learning, it may be possible to do this in a controlled environment, a practice room so to speak, before deploying the robot in the real world. \par
 
-\section{Leveraging dynamics models}
+Second reason, \textcite{heim2018unviable} show the counter-intuitive result that it can be more reliable to initialize a learning agent in unviable states. This is because many systems often have large sets of unviable states: states which have not failed yet, but are doomed to fail within finite time.
+If a robot can be reset after failure, this time can still be used constructively to sample information relevant to the learning task. This poses two requirements: first, the reward function should be designed such that there is relevant information in these unviable states. Second, the system should be designed such that failures do not happen abruptly, but that there is as much time as possible before failure actually happens. Fortunately, this requirement often goes hand in hand with improving robustness, as discussed above. For example, starting with soft gains on an impedance controller will allow a robot to stumble and fall more slowly than a controller that is aggressively tuned for performance.
+
+% - when designing robots, this stresses the importance of being mechanically sturdy, such that it is possible to visit failure states without permanent damage. This property can be seen in many production-level machines.
+% - The main reason why failure states pose a problem to learning, is that in most cases, any failure returns no reward and therefore provides no learning gradient. This is why designing a robot that can fail with grace can greatly help learn.
+
+\section{Leveraging dynamics models} \label{chap:discussion}
 I have focused on model-free methods, for a very deliberate reason: I believe that model-based optimal control is a fantastically powerful tool, and it is too tempting to try to reformulate any problem as an optimization problem.
 At the same time, I believe that robustness is of paramount importance and has been overshadowed by the optimality perspective.
 Taking a completely (or nearly) model-free approach forces us to deal directly with robustness, as we have no assumed structure to exploit.
