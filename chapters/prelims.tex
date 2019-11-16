@@ -3,8 +3,13 @@
 \chapter{Preliminaries} \label{chap:prelims}
 This chapter introduces relevant background information, to help readers from potentially different backgrounds to quickly gain enough knowledge to understand the context, relevance and importance of the contributions of each paper. Covered are the basics of legged locomotion, reinforcement learning and viability theory.
 
-\section{Dynamics and Control for Legged Locomotion}
-Dynamics of legged locomotion include many interesting properties that make them particularly challenging to control. They are non-smooth, due to impacts at foot touchdown. They are hybrid, as the governing equations of motion switch abruptly every time a foot touches down or lifts off. They are underactuated, due to the floating base. And of course they are typically also nonlinear. For most systems of interest to us, they are also passively unstable, and require feedback control. \par
+\section{Legged Locomotion}
+
+While most results in my publications are valid for dynamical systems in general, my research has always been grounded in the topic of legged locomotion. This field offers abundant natural inspiration, including ourselves. Legged systems also encapsulate many interesting challenges in dynamics: the dynamics of legged systems are non-smooth, due to impacts at foot touchdown. They are hybrid, as the governing equations of motion switch abruptly every time a foot touches down or lifts off. They are underactuated, due to the floating base. And of course they are typically also highly nonlinear. While passively stable legged systems exist, for most systems of interest to us they are passively unstable, and require feedback control.
+On top of all this, the community of dynamic legged locomotion is both vibrant and friendly.
+
+\subsection{Dynamics and Control}
+Dynamics of legged locomotion include many interesting properties that make them particularly challenging to control.  \par
 
 A recurrent theme in understanding legged locomotion is to \emph{exploit the natural dynamics} of the system. Indeed, despite the very rich dynamics, it is possible to achieve locomotion with very simple approaches that exploit these natural dynamics.
 The most extreme examples include passive dynamic walkers~\cite{mcgeer1990passive} and actuated robots based on them~\cite{bhounsule2012design,wisse2006design,tedrake2005learning}. \par
@@ -16,15 +21,9 @@ Optimal control offers a more explicit approach, in the form of
 \end{align}
 where $u$ is the control input, $x$ is the state of the system, $t$ is time, $J$ is an arbitrary, scalar cost function and $\phi$ is a vector of constraint functions. The structure of the dynamics can be directly incorporated into the control law in the form of constraints, such that the control law directly and explicitly considers the natural dynamics of the system. Furthermore, most robots of interest are well described as rigid-body systems, and powerful and mature tools are readily available for modeling, identifying, synthesizing and computing controllers for these system. A designer is then allowed substantial freedom to design the overall behavior by modifying the cost function. As a result, optimal control has become one of the preeminent tools of the field, not only for control and planning~\cite{koolen2016design,ponton2016convex,winkler2018gait,mombaur_2009,deits2014footstep}, but also analysis and design~\cite{ha2018codesign,takahashi2019spring,mombaur_2009,Yesilevskiy_2018,Birn-Jeffery3786}.
 
-\subsection{Reduced-order Models of Running}
-
-A major challenge for these tools is still scalability. In high-dimensional systems, optimal control is often limited to finding locally optimal solutions. Alternatively, a popular approach is to split control into hierarchies. A high-level controller reasons on a reduced-order model, which becomes tractable. These solutions are then mapped to the full state-space~\cite{herzog2016momentum,dai2014whole,wensing2013high}. These reduced-order models are also particularly convenient for analysis: it is easier for us to reason about low-dimensional systems that we can easily visualize. Furthermore, they can amenable to more powerful but less tractable tools, including brute-force. \par
-
-It is important at this point to make a distinction between models that are useful for control and models that are useful for analysis. For control, a reduced-order model should be easy to map back into the full-order model, and provide provable guarantees. For example, the LIP assumes a constant height for walking, which does not describe natural walking well. It does however make computation tractable (convex?) and can provide guarantees, making it a good choice for control. A model for analysis should be easy to understand, and closely match the qualitative properties of interest. For example, the spring-loaded inverted pendulum (SLIP) provides very good intuitive understanding for the compliant properties of legs, both in running animals~\cite{blickhan1989spring,rummel2008stable,jindrich2002dynamic}, as well as in some robots~\cite{raibert1986legged,altendorfer2004stability}. They have also been used to conceptually explore various control concepts, such as open-loop deadbeat control~\cite{wu20133,palmer2014periodic} or reachability~\cite{piovan2015reachability}. \par
-While many efforts have been made to map these directly to the full-order model~\cite{wensing2013high,hutter2010slip,poulakakis2009spring}, typically this step requires substantial effort in terms of implementation and computation. The resulting control is typically brittle to model inaccuracies. Furthermore, forcing the high-dimensional dynamics of the actual system to behave on the low-dimensional manifold of the SLIP can potentially override the true natural dynamics. For these reasons, we recommend find the value of these models in their \emph{descriptive} role. We do not recommend their \emph{prescriptive} use to design formal controllers. \par
-Most of my work is built around the analysis of the SLIP model, since it can be reduced to a 1-dimensional state-space and 1-dimensional action-space. I would like to emphasize that we choose to use this as a \emph{descriptive} model, that is, for analysis. I do not recommend directly using it as a prescriptive model, that is, to design controllers assuming the system will behave exactly like a SLIP model. \par
 
 Also bring in some biology uses, such as DALEY/HUBICKI/HAEUFLE.
+
 
 \section{Learning Control}
 
