@@ -1,6 +1,6 @@
-\documentclass{report}
+\documentclass[12pt]{report}
 \usepackage[utf8]{inputenc}
-
+\linespread{1.5} 
 \usepackage{graphics} % for pdf, bitmapped graphics files
 \usepackage{epsfig} % for postscript gr
 \usepackage{mathptmx} % assumes new font selection scheme installed
@@ -15,7 +15,7 @@
 \usepackage{subcaption}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{mathtools} % for prettier math
-
+\usepackage{hyperref} % clickable refs
 \usepackage{epigraph}
 
 % \usepackage[
@@ -44,13 +44,15 @@
 % \renewbibmacro{in:}{}
 \addbibresource{library.bib}
 
+\newcommand{\eom}{EoM}
+\newcommand{\poincare}{Poincar\'{e}}
+
 \title{Viability in State-Action Space: \\
 Connecting Mechanics, Control and Learning.}
 \author{Steve Heim}
 \date{September 2019}
 
 \begin{document}
-
 \maketitle
 \input{summary_eng}
 \input{summary_de}
