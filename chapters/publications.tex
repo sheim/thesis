@@ -1,9 +1,9 @@
 % !TEX root = ../root.tex
 
 \chapter{Published Work} \label{chap:pubs}
-This cumulative thesis is based on the four first author, peer-reviewed publications I produced during my phd studies. In this chapter, I give a recommended reading order, abstract and commentary. Then, my individual contribution for each publication is clarified, as well as some context for each venue of publication.
+This cumulative thesis is based on the four first author, peer-reviewed publications I wrote during my studies. In this chapter, I give a recommended reading order for these papers, which are available in the appendix. For each paper, I then provide the abstract, commentary, some context of the publication venue\footnote{This includes my subjective opinion on the quality of publications usually published in this venue.}, and individual contributions to each paper.
 
-\section{Summaries}
+\section{Overview}
 The recommended reading order is:
 \begin{enumerate}
     \item Shaping in Practice: Training Wheels to Learn Fast Hopping Directly in Hardware
@@ -11,57 +11,98 @@ The recommended reading order is:
     \item A Learnable Safety Measure
     \item Learning from Outside the Viability Kernel: Why we should build Robots that can Fall with Grace
 \end{enumerate}
-The first paper is an empirical study which captures much of the motivation. The second paper formalizes viable sets in state-action space, which is the core theoretical contribution of the thesis. The third paper builds on the second to formalize model-free safe learning. The fourth paper is an offshoot of the second, and points out a minor, counter-intuitive result.
+The first paper is an empirical study which captures much of the motivation. There is a 2-minute synopsis of this paper available online at \url{https://youtu.be/6iH5E3LrYh8}. The second paper formalizes viable sets in state-action space, which is the core theoretical contribution of the thesis. The third paper builds on the second to formalize model-free safe learning. The fourth paper is an offshoot of the second, and points out a minor, counter-intuitive result.
+
+\section{Papers and Contributions}
+The individual contribution to each paper is listed in table format, and with a brief description of what each co-author contributed to. Deciding on the contribution split is a subjective and imprecise exercise. For these papers, I asked each student co-author to first consider independently how they thought contributions should be split. We then compared notes, discussed it together, and agreed to the description I have written here. This was presented to the principal investigator (PI) co-authors for their approval. To reflect the imprecise nature of these descriptions, I do not use a percentage split but rather a descriptive word. As a rule of thumb, \emph{major} indicates a contribution that is central to the paper, \emph{substantial} indicates a critical contribution, without which the paper would probably not have been submitted, \emph{minor} indicates an important contribution, without which the paper quality would be significantly diminished and possibly not accepted, and finally \emph{negligible} indicates contributions that improved the paper, but did not significantly change the form or content.
 
 \subsection{Shaping in Practice}
 \textbf{Abstract: }
 Learning instead of designing robot controllers can greatly reduce engineering effort required, while also emphasizing robustness. Despite considerable progress in simulation, applying learning directly in hardware is still challenging, in part due to the necessity to explore potentially unstable parameters. We explore the of concept shaping the reward landscape with \emph{training wheels}; temporary modifications of the physical hardware that facilitate learning. We demonstrate the concept with a robot leg mounted on a boom learning to hop fast. This proof of concept embodies typical challenges such as instability and contact, while being simple enough to empirically map out and visualize the reward landscape. Based on our results we propose three criteria for designing effective training wheels for learning in robotics. \par
 \textbf{Commentary: }
 This empirical study served to understand what are the most important aspects when considering learning in hardware. One of the most important take-aways is that failures are common and typically provide very little useful information to learn from. When considering safety in robot learning, the usual motivations are avoiding damage (to the robot or the world) and time-consuming resets and repairs. Here we see, however, that it is also important in order to learn more reliably. \par
-% * description: a simple and low-dimensional system. An open-loop sinusoidal controller parameterization with a spring-loaded leg, a combination which is intuitively known to be very robust. The low-dimensionality allows us to quickly map out the actual reward landscape by sampling a grid empirically. We can therefore obtain ground-truth for the system and compare how the reward landscape changes as we adjust a physical parameter (in our case the total mass of the system).
-% We can thus show some important aspects in a simple and direct manner.
-% First, large patches of the 
+\textbf{Venue: }
+the IEEE International Conference for Robotics and Automation (ICRA) is the largest and one of the most important conferences in robotics, alongside the International Conference on Intelligent Robots and Systems (IROS). Publications in these venues often have major impact, and they are considered a top publication venue for the field of robotics. However, variance on the quality of publications is also high, presumably due to high variance in reviewing quality. \par
+\textbf{Individual Contributions: }
+\begin{table}[H]
+\begin{tabular}{l|l|l|l|l|l|}
+\cline{2-6}
+ \textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
+\multicolumn{1}{|l|}{S.H.} & Major & Major & Major & Major & Substantial \\ \hline
+\multicolumn{1}{|l|}{F.R.} & Minor & Major & Minor & Substantial & Substantial \\ \hline
+\multicolumn{1}{|l|}{A.S.} & Minor & Major & Minor & Minor & Substantial \\ \hline
+\multicolumn{1}{|l|}{A.S. (PI)} & Minor & Negligible & Negligible & Minor & Substantial \\ \hline
+\end{tabular}
+\end{table}
 
-% To keep the focus of the study on the effect of changing morphology, all other aspects are simplified as much as possible. The robot used is a single two degree-of-freedom (DoF) leg, constrained to 2D motion by a boom. Only the hip joint is actuated, where and a passive spring-loaded ankle joint, similar to the hopper used
-% Specifically, we empirically map out the reward landscape while changing a physical parameter in a simple robot system. We then show 
-\textbf{Venue: }the International Conference for Robotics and Automation (ICRA) is the largest and one of the most important conferences in robotics, alongside the International Conference on Intelligent Robots and Systems (IROS). Publications in these venues often have major impact, and they are considered a premier publication venue for the field of robotics. However, variance on the quality of publications is also high, presumably due to high variance in reviewing quality.
+I (\emph{Steve Heim}) formed the initial idea of demonstrating shaping with a mechanical change (training wheels), and wrote the code to control for the robot, the code for the learning algorithm and code to process, analyze, and visualize the data. I conducted a large portion of experiments, and wrote most of the paper. I took part in regular team meetings, including scheduling and deciding when to adjust milestones. \\
+\emph{Felix Ruppert} helped conceptualize how to implement the concept of training wheels, extensively tested an implementation of damping (the first idea, unpublished), built the test set-up, and did maintenance of the hardware. Felix also conducted a large portion of experiments and assisted in the analysis of results. Felix also took the videos and photos of the robot and experiments, and proof-read the paper. Felix took part in regular team meetings, including scheduling and deciding when to adjust milestones. \\
+\emph{Alborz Sarvestani} helped conceptualize how to implement the concept of training wheels, built the leg, and did maintenance of the hardware. Alborz also wrote the hardware description for the paper, and proof-read the paper. Alborz took part in regular team meetings, including scheduling and deciding when to adjust milestones. \\
+\emph{Alexander Spr\"{o}witz} helped conceptualize how to implement the concept of training wheels, and proof-read the paper. Alexander took part in regular team meetings, including scheduling and deciding when to adjust milestones.
+
 
 \subsection{Beyond Basins of Attraction}
 \textbf{Abstract: }
 Properly designing a system to exhibit favorable natural dynamics can greatly simplify designing or learning the control policy. However, it is still unclear what constitutes favorable natural dynamics and how to quantify its effect. Most studies of simple walking and running models have focused on the basins of attraction of passive limit-cycles and the notion of self-stability. We instead emphasize the importance of stepping beyond basins of attraction. We show an approach based on viability theory to quantify robust sets in state-action space. These sets are valid for the family of all robust control policies, which allows us to quantify the robustness inherent to the natural dynamics before designing the control policy or specifying a control objective.
 We illustrate our formulation using spring-mass models, simple low dimensional models of running systems. We then show an example application by optimizing robustness of a simulated planar monoped, using a gradient-free optimization scheme. Both case studies result in a nonlinear effective stiffness providing more robustness. \par
 \textbf{Commentary: }
-To the best of my knowledge, this is the first formalization of how morphology or mechanical design influences robustness. The formalization of viable sets in state-action space allow, for the first time, quantified comparisons of different designs in terms of robustness, without making assumptions on the control policy. Furthermore, focusing on robustness in terms of avoiding failure instead of convergence is a subtle but important change in how we reason about locomotion. Although the fundamental mathematical objects are defined in this paper, there is a lot of room for future work in applying these objects in different contexts and for specific systems. Another open topic are computational tools to apply this in practice. In particular, scaling to higher dimensions remains and important open challenge. % rewrite
+To the best of my knowledge, this is the first rigorous formalization of how morphology or mechanical design influences robustness. The formalization of viable sets in state-action space allow, for the first time, quantified comparisons of different designs in terms of robustness, without making assumptions on the control policy design. Furthermore, focusing on robustness in terms of avoiding failure instead of convergence is a subtle yet important change in how we reason about locomotion. Although the fundamental mathematical objects are defined in this paper, there is a lot of room for future work in applying these objects in different contexts and for specific systems. Another open topic are computational tools to apply this in practice. In particular, scaling to higher dimensions remains and important open challenge. % rewrite
 
 \textbf{Venue: }
-Transactions on Robotics is the flagship journal of the IEEE Robotics and Automation Society. It is widely considered one of the top journals in robotics, either on par or a close second to the International Journal on Robotics Research (IJRR).
+Transactions on Robotics is the flagship journal of the IEEE Robotics and Automation Society. It is widely considered one of the top journals in robotics, either on par or a close second to the International Journal on Robotics Research (IJRR). \par
+\textbf{Individual Contributions: }
+\begin{table}[H]
+\begin{tabular}{l|l|l|l|l|l|}
+\cline{2-6}
+ \textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
+\multicolumn{1}{|l|}{S.H.} & Major & Major & Major & Major & Major \\ \hline
+\multicolumn{1}{|l|}{A.S. (PI)} & Negligible & Negligible & Negligible & Minor & Minor \\ \hline
+\end{tabular}
+\end{table}
+I (\emph{Steve Heim}) formed the concept, developed them via numerical experimentation, and then formalized these concept mathematically. I refined the direction based on feedback to preliminary numerical results at conference such as 'Dynamic Walking' and 'Adaptive Motion in Animals and Machines'. I devised the algorithms, wrote all code for simulation, numerical computation, and visualization. I wrote the paper, and responses to reviewers, and managed my time and goals on this project, including splitting off the side result to a separate publication (publication 4). \\
+\emph{Alexander Spr\"{o}witz} kept track of the project progress, and gave advice on choosing deadlines and the venue for publication. Alexander proof-read the paper, and gave advice for and proof-read the response to reviewers.
+
 
 \subsection{A Learnable Safety Measure}
 \textbf{Abstract: }
 Failures are challenging for learning to control physical systems since they risk damage, time-consuming resets, and often provide little gradient information. Adding safety constraints to exploration typically requires a lot of prior knowledge and domain expertise. We present a safety measure which implicitly captures how the system dynamics relate to a set of failure states. Not only can this measure be used as a safety function, but also to directly compute the set of safe state-action pairs. Further, we show a model-free approach to learn this measure by active sampling using Gaussian processes. While safety can only be guaranteed after learning the safety measure, we show that failures can already be greatly reduced by using the estimated measure during learning. \par
 \textbf{Commentary: }
 \textbf{Venue: }
-the Conference on Robot Learning (CoRL) is a young conference: this publication appeared in its third edition. It is loosely modeled after the Robotics Science and Systems (RSS) conference, a small, single-track conference known for its high-quality and low acceptance rate. CoRL has so far managed to maintain these standards. In its third edition, 112 papers were selected out of 398 submissions. Papers in the second edition have an average of X citations after a year. This high citation count can be partly attributed to the high standards of the conference, and partly to the current popularity (and therefore high publication rate) of machine learning. \par
+the Conference on Robot Learning (CoRL) is a young conference: this publication appears in its third edition. It is loosely modeled after the Robotics Science and Systems (RSS) conference, another small, single-track conference known for its high-quality and low acceptance rate; in the third edition of CoRL, 112 papers were selected out of 398 submissions. CoRL has so far managed to maintain these standards, and papers from previous editions quite consistently have high citation counts after only 1-2 years. This high citation count can be partly attributed to the high standards of the conference, and partly to the current popularity (and therefore high publication rate) of machine learning. \par
+\textbf{Individual Contributions: }
+\begin{table}[H]
+\begin{tabular}{l|l|l|l|l|l|}
+\cline{2-6}
+\textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
+\multicolumn{1}{|l|}{S.H.} & Major & Major & Major & Major & Major \\ \hline
+\multicolumn{1}{|l|}{A.v.R.} & Minor & Major & Major & Substantial & Substantial \\ \hline
+\multicolumn{1}{|l|}{S.T.} & Negligible & Negligible & Negligible & Minor & Minor \\ \hline
+\multicolumn{1}{|l|}{A.B.S.} & Negligible & Negligible & Negligible & Negligible & Minor \\ \hline
+\end{tabular}
+\end{table}
 
-\textbf{Contribution: }
-
-
+I (\emph{Steve Heim}) formed the concept, and formalized the theoretical groundwork in a deterministic setting. I recognized the possibility to model the measure probabilistically, and reached out to Alexander von Rohr to help on this aspect. I helped work out the details of modeling the measure as a Gaussian process, and how to use this probabilistic model to gather samples. I wrote the code framework for computing viable sets, as well as all simulations. I helped debug and test learning algorithms and tune hyperparameters. I wrote the majority of the paper, proof-read the paper, and made visualizations. I managed the milestones and overall timeline for the project, and planned milestones for the project. \\
+\emph{Alexander von Rohr} (co-first author) worked out the details of modeling the measure with Gaussian processes, and learning with active sampling. Alexander implemented the learning algorithm, re-factored code for easy reproduction of results, and conducted extensive parameter tuning. Alexander wrote a portion of the paper, proof-read the paper, and made visualizations. Alexander planned milestones for the project. \\
+\emph{Sebastian Trimpe} extensively proof-read the paper, gave advice on related work, and gave advice on how to handle the rebuttal. Sebastian checked the overall motivation and workplan for the project. \\
+\emph{Alexander Badri-Spr\"{o}witz} gave advice on how to handle the rebuttal. Alexander checked the overall motivation and workplan for the project.
 
 \subsection{Learning from Outside the Viability Kernel}
 \textbf{Abstract: }
 Despite impressive results using reinforcement learning to solve complex problems from scratch, in robotics this has still been largely limited to model-based learning with very informative reward functions. One of the major challenges is that the reward landscape often has large patches with no gradient, making it difficult to sample gradients effectively. We show here that the robot state-initialization can have a more important effect on the reward landscape than is generally expected. In particular, we show the counter-intuitive benefit of including initializations that are \emph{unviable}, in other words initializing in states that are doomed to fail.
 \textbf{Commentary: }
+I find the core result of this work interesting since, although not directly useful, it is particularly counterintuitive, and it gives a simple, concrete example that highlights why it is a good practice to place a lot more variation in state initializations. This is relevant since this aspect is very often completely ignored when designing experimental set-ups.
+\par
 \textbf{Venue: }
-
-\section{Individual Contributions}
-% turn this into a table
-\begin{enumerate}
-    \item Training wheels
-    \item Beyond Basins
-    \item Safety Measure
-    \item Unviable
-\end{enumerate}
-
-\subsection{Training Wheels}
-
-
+the IEEE international conference on Simulation, Modeling, and Programming for Autonomous Robots (SIMPAR) is a small (27 accepted papers that year), bi-annual conference typically organized in proximity of a major robotics conference: in 2018 it was held in Brisbane on the week preceding ICRA (also in Brisbane, and the venue of publication 1). The theme for this edition was 'Leveraging Simulation in the Hardware and Software Design of Autonomous Robots'. The overall quality of publications appeared to me to be decent, neither particularly high nor low.
+\par
+\textbf{Individual Contributions: }
+\begin{table}[H]
+\begin{tabular}{l|l|l|l|l|l|}
+\cline{2-6}
+ \textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
+\multicolumn{1}{|l|}{S.H.} & Major & Major & Major & Major & Major \\ \hline
+\multicolumn{1}{|l|}{Alexander} & Negligible & Negligible & Negligible & Minor & Minor \\ \hline
+\end{tabular}
+\end{table}
+I (\emph{Steve Heim}) formed the concept and designed the experiment. I implemented all code, and carried out experiments and analysis. I chose the venue of publication, wrote the paper, and managed my time and goals on this project. \\
+\emph{Alexander Spr\"{o}witz} kept track of the project progress, and gave advice on choosing deadlines and the venue for publication. Alexander proof-read the paper, and gave advice for and proof-read the response to reviewers.
