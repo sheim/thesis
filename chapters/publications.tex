@@ -14,7 +14,7 @@ The recommended reading order is:
 The first paper is an empirical study which captures much of the motivation. There is a 2-minute synopsis of this paper available online at \url{https://youtu.be/6iH5E3LrYh8}. The second paper formalizes viable sets in state-action space, which is the core theoretical contribution of the thesis. The third paper builds on the second to formalize model-free safe learning. The fourth paper is an offshoot of the second, and points out a minor, counter-intuitive result.
 
 \section{Papers and Contributions}
-The individual contribution to each paper is listed in table format, and with a brief description of what each co-author contributed to. Deciding on the contribution split is a subjective and imprecise exercise. For these papers, I asked each student co-author to first consider independently how they thought contributions should be split. We then compared notes, discussed it together, and agreed to the description I have written here. This was presented to the principal investigator (PI) co-authors for their approval. To reflect the imprecise nature of these descriptions, I do not use a percentage split but rather a descriptive word. As a rule of thumb, \emph{major} indicates a contribution that is central to the paper, \emph{substantial} indicates a critical contribution, without which the paper would probably not have been submitted, \emph{minor} indicates an important contribution, without which the paper quality would be significantly diminished and possibly not accepted, and finally \emph{negligible} indicates contributions that improved the paper, but did not significantly change the form or content.
+The individual contribution to each paper is listed in table format, and with a brief description of what each co-author contributed to. Deciding on the contribution split is a subjective and imprecise exercise. I asked each student co-author to first consider independently how they thought contributions should be split. We then compared notes, discussed it together, and agreed to the description I have written here. This was presented to the principal investigator (PI) co-authors for their approval. To reflect the imprecise nature of these descriptions, I do not use a percentage split but rather a descriptive word: major, substantial, minor or negligible. As a rule of thumb, \emph{major} indicates a contribution that is central to the paper, \emph{substantial} indicates a critical contribution, without which the paper would probably not have been submitted, \emph{minor} indicates an important contribution, without which the paper quality would be significantly diminished and possibly not accepted, and finally \emph{negligible} indicates contributions that improved the paper, but did not significantly change the form or content.
 
 \subsection{Shaping in Practice}
 \textbf{Abstract: }
@@ -24,7 +24,7 @@ This empirical study served to understand what are the most important aspects wh
 \textbf{Venue: }
 the IEEE International Conference for Robotics and Automation (ICRA) is the largest and one of the most important conferences in robotics, alongside the International Conference on Intelligent Robots and Systems (IROS). Publications in these venues often have major impact, and they are considered a top publication venue for the field of robotics. However, variance on the quality of publications is also high, presumably due to high variance in reviewing quality. \par
 \textbf{Individual Contributions: }
-\begin{table}[H]
+\begin{table}[h!]
 \begin{tabular}{l|l|l|l|l|l|}
 \cline{2-6}
  \textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
@@ -35,10 +35,10 @@ the IEEE International Conference for Robotics and Automation (ICRA) is the larg
 \end{tabular}
 \end{table}
 
-I (\emph{Steve Heim}) formed the initial idea of demonstrating shaping with a mechanical change (training wheels), and wrote the code to control for the robot, the code for the learning algorithm and code to process, analyze, and visualize the data. I conducted a large portion of experiments, and wrote most of the paper. I took part in regular team meetings, including scheduling and deciding when to adjust milestones. \\
-\emph{Felix Ruppert} helped conceptualize how to implement the concept of training wheels, extensively tested an implementation of damping (the first idea, unpublished), built the test set-up, and did maintenance of the hardware. Felix also conducted a large portion of experiments and assisted in the analysis of results. Felix also took the videos and photos of the robot and experiments, and proof-read the paper. Felix took part in regular team meetings, including scheduling and deciding when to adjust milestones. \\
-\emph{Alborz Sarvestani} helped conceptualize how to implement the concept of training wheels, built the leg, and did maintenance of the hardware. Alborz also wrote the hardware description for the paper, and proof-read the paper. Alborz took part in regular team meetings, including scheduling and deciding when to adjust milestones. \\
-\emph{Alexander Spr\"{o}witz} helped conceptualize how to implement the concept of training wheels, and proof-read the paper. Alexander took part in regular team meetings, including scheduling and deciding when to adjust milestones.
+I helped form the initial idea of demonstrating shaping with a mechanical change (training wheels), helped decide how to implement it, wrote the code for the locomotion controller, the learning algorithm and code to process, analyze, and visualize the data. I conducted a large portion of experiments, and wrote the paper, except for an excerpt describing the hardware. I took part in regular team meetings, and helped plan and adjust milestones throughout the project. \\
+% \emph{Felix Ruppert} helped conceptualize how to implement the concept of training wheels, extensively tested an implementation of damping (the first idea, unpublished), built the test set-up, and did maintenance of the hardware. Felix also conducted a large portion of experiments and assisted in the analysis of results. Felix also took the videos and photos of the robot and experiments, and proof-read the paper. Felix took part in regular team meetings, including scheduling and deciding when to adjust milestones. \\
+% \emph{Alborz Sarvestani} helped conceptualize how to implement the concept of training wheels, built the leg, and did maintenance of the hardware. Alborz also wrote the hardware description for the paper, and proof-read the paper. Alborz took part in regular team meetings, including scheduling and deciding when to adjust milestones. \\
+% \emph{Alexander Spr\"{o}witz} helped conceptualize how to implement the concept of training wheels, and proof-read the paper. Alexander took part in regular team meetings, including scheduling and deciding when to adjust milestones.
 
 
 \subsection{Beyond Basins of Attraction}
@@ -46,12 +46,12 @@ I (\emph{Steve Heim}) formed the initial idea of demonstrating shaping with a me
 Properly designing a system to exhibit favorable natural dynamics can greatly simplify designing or learning the control policy. However, it is still unclear what constitutes favorable natural dynamics and how to quantify its effect. Most studies of simple walking and running models have focused on the basins of attraction of passive limit-cycles and the notion of self-stability. We instead emphasize the importance of stepping beyond basins of attraction. We show an approach based on viability theory to quantify robust sets in state-action space. These sets are valid for the family of all robust control policies, which allows us to quantify the robustness inherent to the natural dynamics before designing the control policy or specifying a control objective.
 We illustrate our formulation using spring-mass models, simple low dimensional models of running systems. We then show an example application by optimizing robustness of a simulated planar monoped, using a gradient-free optimization scheme. Both case studies result in a nonlinear effective stiffness providing more robustness. \par
 \textbf{Commentary: }
-To the best of my knowledge, this is the first rigorous formalization of how morphology or mechanical design influences robustness. The formalization of viable sets in state-action space allow, for the first time, quantified comparisons of different designs in terms of robustness, without making assumptions on the control policy design. Furthermore, focusing on robustness in terms of avoiding failure instead of convergence is a subtle yet important change in how we reason about locomotion. Although the fundamental mathematical objects are defined in this paper, there is a lot of room for future work in applying these objects in different contexts and for specific systems. Another open topic are computational tools to apply this in practice. In particular, scaling to higher dimensions remains and important open challenge. % rewrite
+To the best of my knowledge, this is the first rigorous formalization of how morphology or mechanical design influences robustness. The formalization of viable sets in state-action space allow quantified comparisons of different designs in terms of robustness, without making assumptions on the control policy design. Furthermore, focusing on robustness in terms of avoiding failure instead of convergence is a subtle yet important change in how we reason about locomotion. Although the fundamental mathematical objects are defined in this paper, there is a lot of room for future work in applying these objects in different contexts and for specific systems. Another open topic are computational tools to apply this in practice. In particular, scaling to higher dimensions remains and important open challenge. % rewrite
 
 \textbf{Venue: }
 Transactions on Robotics is the flagship journal of the IEEE Robotics and Automation Society. It is widely considered one of the top journals in robotics, either on par or a close second to the International Journal on Robotics Research (IJRR). \par
 \textbf{Individual Contributions: }
-\begin{table}[H]
+\begin{table}[h!]
 \begin{tabular}{l|l|l|l|l|l|}
 \cline{2-6}
  \textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
@@ -59,18 +59,21 @@ Transactions on Robotics is the flagship journal of the IEEE Robotics and Automa
 \multicolumn{1}{|l|}{A.S. (PI)} & Negligible & Negligible & Negligible & Minor & Minor \\ \hline
 \end{tabular}
 \end{table}
-I (\emph{Steve Heim}) formed the concept, developed them via numerical experimentation, and then formalized these concept mathematically. I refined the direction based on feedback to preliminary numerical results at conference such as 'Dynamic Walking' and 'Adaptive Motion in Animals and Machines'. I devised the algorithms, wrote all code for simulation, numerical computation, and visualization. I wrote the paper, and responses to reviewers, and managed my time and goals on this project, including splitting off the side result to a separate publication (publication 4). \\
-\emph{Alexander Spr\"{o}witz} kept track of the project progress, and gave advice on choosing deadlines and the venue for publication. Alexander proof-read the paper, and gave advice for and proof-read the response to reviewers.
+I formed the concepts, developed them via numerical experimentation, and then formalized these concepts mathematically. I refined the direction based on feedback to preliminary numerical results at conference such as 'Dynamic Walking' and 'Adaptive Motion in Animals and Machines'. I devised the algorithms, wrote all code for simulation, numerical computation, and visualization. I wrote the paper, and responses to reviewers, and managed my time and goals on this project, including splitting off the side result to a separate publication (publication 4). \\
+% \emph{Alexander Spr\"{o}witz} kept track of the project progress, and gave advice on choosing deadlines and the venue for publication. Alexander proof-read the paper, and gave advice for and proof-read the response to reviewers.
 
 
 \subsection{A Learnable Safety Measure}
 \textbf{Abstract: }
 Failures are challenging for learning to control physical systems since they risk damage, time-consuming resets, and often provide little gradient information. Adding safety constraints to exploration typically requires a lot of prior knowledge and domain expertise. We present a safety measure which implicitly captures how the system dynamics relate to a set of failure states. Not only can this measure be used as a safety function, but also to directly compute the set of safe state-action pairs. Further, we show a model-free approach to learn this measure by active sampling using Gaussian processes. While safety can only be guaranteed after learning the safety measure, we show that failures can already be greatly reduced by using the estimated measure during learning. \par
 \textbf{Commentary: }
+This paper builds on the mathematical objects introduced in \emph{Beyond Basins of Attraction} by placing a measure over the viable sets in state-action space. The primary motivation of the paper is to allow learning directly on the real system, by restricting exploration to probabilistically safe regions. A side effect is that samples are restricted to `interesting' regions: as pointed out in several papers in this thesis, failures are not only costly due to potential damage, but they are also typically uninformative for the learning process. By concentrating samples in the informative, non-failing set, the learning agent wastes fewer samples. Beyond the robot learning setting, this approach can be used in other contexts where large portions of the search space are uninformative by simply replacing the notion of `failure set' with an appropriate state-constraint.
+% To the best of my knowledge, this if the first formalization of a safety measure that directly relates dynamics to a set of failure states, and can be learned directly by sampling, without model assumptions. Other work on safe learning typically assumes that a safety function can be sampled directly; instead, after sampling a state-action pair, we receive only the new state and a boolean indicating whether the state is in the failure set or not.
+%Due to the generality of this setting, this approach can be directly combined with any RL approach. How to combine this with RL, and also how to combine this with model-learning, is a research direction with a lot of potential.
 \textbf{Venue: }
 the Conference on Robot Learning (CoRL) is a young conference: this publication appears in its third edition. It is loosely modeled after the Robotics Science and Systems (RSS) conference, another small, single-track conference known for its high-quality and low acceptance rate; in the third edition of CoRL, 112 papers were selected out of 398 submissions. CoRL has so far managed to maintain these standards, and papers from previous editions quite consistently have high citation counts after only 1-2 years. This high citation count can be partly attributed to the high standards of the conference, and partly to the current popularity (and therefore high publication rate) of machine learning. \par
 \textbf{Individual Contributions: }
-\begin{table}[H]
+\begin{table}[h!]
 \begin{tabular}{l|l|l|l|l|l|}
 \cline{2-6}
 \textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
@@ -81,10 +84,11 @@ the Conference on Robot Learning (CoRL) is a young conference: this publication 
 \end{tabular}
 \end{table}
 
-I (\emph{Steve Heim}) formed the concept, and formalized the theoretical groundwork in a deterministic setting. I recognized the possibility to model the measure probabilistically, and reached out to Alexander von Rohr to help on this aspect. I helped work out the details of modeling the measure as a Gaussian process, and how to use this probabilistic model to gather samples. I wrote the code framework for computing viable sets, as well as all simulations. I helped debug and test learning algorithms and tune hyperparameters. I wrote the majority of the paper, proof-read the paper, and made visualizations. I managed the milestones and overall timeline for the project, and planned milestones for the project. \\
-\emph{Alexander von Rohr} (co-first author) worked out the details of modeling the measure with Gaussian processes, and learning with active sampling. Alexander implemented the learning algorithm, re-factored code for easy reproduction of results, and conducted extensive parameter tuning. Alexander wrote a portion of the paper, proof-read the paper, and made visualizations. Alexander planned milestones for the project. \\
-\emph{Sebastian Trimpe} extensively proof-read the paper, gave advice on related work, and gave advice on how to handle the rebuttal. Sebastian checked the overall motivation and workplan for the project. \\
-\emph{Alexander Badri-Spr\"{o}witz} gave advice on how to handle the rebuttal. Alexander checked the overall motivation and workplan for the project.
+I formed the concept, and developed the theoretical groundwork in a deterministic setting, including the convergence proof. I wrote the code framework for computing viable sets, as well as all simulations. I recognized the possibility to extend this to a probabilistic setting, and reached out to Alexander von Rohr to help on this aspect. I helped work out the details of modeling the measure as a Gaussian process, and how to use this probabilistic model to gather samples. I helped debug and test the learning algorithm and tune hyperparameters. I wrote the majority of the paper, proof-read the paper, and helped make visualizations. I managed the milestones and overall timeline for the project, and helped plan milestones for the project. \\
+
+% \emph{Alexander von Rohr} (co-first author) worked out the details of modeling the measure with Gaussian processes, and learning with active sampling. Alexander implemented the learning algorithm, re-factored code for easy reproduction of results, and conducted extensive parameter tuning. Alexander wrote a portion of the paper, proof-read the paper, and made visualizations. Alexander planned milestones for the project. \\
+% \emph{Sebastian Trimpe} extensively proof-read the paper, gave advice on related work, and gave advice on how to handle the rebuttal. Sebastian checked the overall motivation and workplan for the project. \\
+% \emph{Alexander Badri-Spr\"{o}witz} gave advice on how to handle the rebuttal. Alexander checked the overall motivation and workplan for the project.
 
 \subsection{Learning from Outside the Viability Kernel}
 \textbf{Abstract: }
@@ -96,7 +100,7 @@ I find the core result of this work interesting since, although not directly use
 the IEEE international conference on Simulation, Modeling, and Programming for Autonomous Robots (SIMPAR) is a small (27 accepted papers that year), bi-annual conference typically organized in proximity of a major robotics conference: in 2018 it was held in Brisbane on the week preceding ICRA (also in Brisbane, and the venue of publication 1). The theme for this edition was 'Leveraging Simulation in the Hardware and Software Design of Autonomous Robots'. The overall quality of publications appeared to me to be decent, neither particularly high nor low.
 \par
 \textbf{Individual Contributions: }
-\begin{table}[H]
+\begin{table}[h!]
 \begin{tabular}{l|l|l|l|l|l|}
 \cline{2-6}
  \textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
@@ -104,5 +108,5 @@ the IEEE international conference on Simulation, Modeling, and Programming for A
 \multicolumn{1}{|l|}{Alexander} & Negligible & Negligible & Negligible & Minor & Minor \\ \hline
 \end{tabular}
 \end{table}
-I (\emph{Steve Heim}) formed the concept and designed the experiment. I implemented all code, and carried out experiments and analysis. I chose the venue of publication, wrote the paper, and managed my time and goals on this project. \\
-\emph{Alexander Spr\"{o}witz} kept track of the project progress, and gave advice on choosing deadlines and the venue for publication. Alexander proof-read the paper, and gave advice for and proof-read the response to reviewers.
+I formed and developed the concept. I implemented code, and carried out experiments and analysis. I chose the venue of publication, wrote the paper, and managed workpackages and milestones for the project. \\
+% \emph{Alexander Spr\"{o}witz} kept track of the project progress, and gave advice on choosing deadlines and the venue for publication. Alexander proof-read the paper, and gave advice for and proof-read the response to reviewers.

@@ -17,22 +17,11 @@
 \usepackage{mathtools} % for prettier math
 \usepackage{hyperref} % clickable refs
 \usepackage{epigraph}
-\usepackage[table,xcdraw]{xcolor}
 
-% \usepackage[
-%   separate-uncertainty = true,
-%   multi-part-units = repeat
-% ]{siunitx} % for +/- symbol (\pm)
-\usepackage{algorithm}
-\usepackage{algpseudocode} % pseudocode
-\algtext*{EndWhile}% Remove "end while" text
-\algtext*{EndIf}% Remove "end if" text
-\algtext*{EndFor}% Remove "end if" text
-\algtext*{EndProcedure}
 \usepackage{epigraph}
 
 % Biber
-\usepackage[backend=biber,      % replace bibtex with biber (bibliography backend engine)
+\usepackage[backend=biber,      % replace bibtex with biber
     style=ieee,
     bibstyle=ieee,              % write literature lists in IEEE style
     % citestyle=numeric-comp,     % \cite uses a numeric key
@@ -40,9 +29,6 @@
     giveninits=true,            % use caps    
     backref=false
 ]{biblatex}
-
-% \newcommand{\citet}[1]{\textcitet{#1}}
-% \renewbibmacro{in:}{}
 \addbibresource{library.bib}
 
 \newcommand{\eom}{EoM}
