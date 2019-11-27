@@ -271,10 +271,26 @@ keywords={aircraft control;Bayes methods;control system synthesis;Gaussian proce
 doi={10.1109/ICRA.2016.7487170},
 month={May}
 }
+@incollection{neunert2017off,
+  title={Why off-the-shelf physics simulators fail in evaluating feedback controller performance-a case study for quadrupedal robots},
+  author={Neunert, Michael and Boaventura, Thiago and Buchli, Jonas},
+  booktitle={Advances in Cooperative Robotics},
+  pages={464--472},
+  year={2017},
+  publisher={World Scientific}
+}
 @InProceedings{heim2019learnable,
   title={A Learnable Safety Measure},
   author={Heim, Steve and von Rohr, Alexander and Trimpe, Sebastian and Badri-Spr{\"o}witz, Alexander},
   booktitle =    {Proceedings of The 3rd Conference on Robot Learning},
+  year =   {2019},
+  series =   {Proceedings of Machine Learning Research},
+  publisher =    {PMLR},
+}
+@article{xie2019cassie,
+  title={Learning Locomotion Skills for Cassie: Iterative Design and Sim-to-Real},
+  author={Xie, Zhaoming and Clary, Patrick and Dao, Jeremy and Morais, Pedro and Hurst, Jonanthan and van de Panne, Michiel},
+    booktitle =    {Proceedings of The 3rd Conference on Robot Learning},
   year =   {2019},
   series =   {Proceedings of Machine Learning Research},
   publisher =    {PMLR},
@@ -585,7 +601,6 @@ year = {2016}
     year = {2019},
     doi = {10.1126/scirobotics.aau5872},
     publisher = {Science Robotics},
-    abstract = {Legged robots pose one of the greatest challenges in robotics. Dynamic and agile maneuvers of animals cannot be imitated by existing methods that are crafted by humans. A compelling alternative is reinforcement learning, which requires minimal craftsmanship and promotes the natural evolution of a control policy. However, so far, reinforcement learning research for legged robots is mainly limited to simulation, and only few and comparably simple examples have been deployed on real systems. The primary reason is that training with real robots, particularly with dynamically balancing systems, is complicated and expensive. In the present work, we introduce a method for training a neural network policy in simulation and transferring it to a state-of-the-art legged system, thereby leveraging fast, automated, and cost-effective data generation schemes. The approach is applied to the ANYmal robot, a sophisticated medium-dog{\textendash}sized quadrupedal system. Using policies trained in simulation, the quadrupedal machine achieves locomotion skills that go beyond what had been achieved with prior methods: ANYmal is capable of precisely and energy-efficiently following high-level body velocity commands, running faster than before, and recovering from falling even in complex configurations.},
     journal = {Science Robotics}
 }
 
@@ -609,7 +624,6 @@ year={2018},
 volume={},
 number={},
 pages={1241-1246},
-keywords={feedback;learning (artificial intelligence);legged locomotion;Markov processes;motion control;robot dynamics;velocity control;Cassie;deep reinforcement learning;bipedal locomotion skills;local linearization;reduced-order abstractions;tractable solutions;model-based control strategies;torque limits;joint limits;nonlinearities;control computations;DRL;machine learning literature;ad-hoc simulation models;realizable bipedal robots;feedback control problem;robust walking controllers;controller robustness;model-free approach;Legged locomotion;Reinforcement learning;Computational modeling;Aerospace electronics;Feedback control;Trajectory},
 doi={10.1109/IROS.2018.8593722},
 month={Oct}
 }
@@ -867,6 +881,14 @@ month={July}
   year={2001},
   publisher={Springer}
 }
+@inproceedings{lin2019efficient,
+  title={Efficient humanoid contact planning using learned centroidal dynamics prediction},
+  author={Lin, Yu-Chi and Ponton, Brahayam and Righetti, Ludovic and Berenson, Dmitry},
+  booktitle={2019 International Conference on Robotics and Automation (ICRA)},
+  pages={5280--5286},
+  year={2019},
+  organization={IEEE}
+}
 @inproceedings{ponton2016convex,
   title={A convex model of humanoid momentum dynamics for multi-contact motion generation},
   author={Ponton, Brahayam and Herzog, Alexander and Schaal, Stefan and Righetti, Ludovic},
@@ -950,6 +972,13 @@ pages={279-286},
 doi={10.1109/HUMANOIDS.2014.7041373},
 ISSN={},
 month={Nov},}
+@article{yeganegi2019robust,
+booktitle={IEEE-RAS International Conference on Humanoid Robots},
+  title={Robust Humanoid Locomotion Using Trajectory Optimization and Sample-Efficient Learning},
+  author={Yeganegi, Mohammad Hasan and Khadiv, Majid and Moosavian, S Ali A and Zhu, Jia-Jie and Del Prete, Andrea and Righetti, Ludovic},
+  journal={arXiv preprint arXiv:1907.04616},
+  year={2019}
+}
 @article{mombaur_2009,
 title={Using optimization to create self-stable human-like running},
 volume={27},
@@ -981,6 +1010,14 @@ doi={10.1109/LRA.2019.2929984},
   year={2006},
   publisher={National Acad Sciences}
 }
+@inproceedings{roberts2011feedback,
+  title={Feedback controller parameterizations for reinforcement learning},
+  author={Roberts, John W and Manchester, Ian R and Tedrake, Russ},
+  booktitle={2011 IEEE Symposium on Adaptive Dynamic Programming and Reinforcement Learning (ADPRL)},
+  pages={310--317},
+  year={2011},
+  organization={IEEE}
+}
 @article{haldane2016robotic,
   title={Robotic vertical jumping agility via series-elastic power modulation},
   author={Haldane, Duncan W and Plecnik, Mark M and Yim, Justin K and Fearing, Ronald S},
@@ -988,6 +1025,13 @@ doi={10.1109/LRA.2019.2929984},
   volume={1},
   number={1},
   year={2016}
+}
+@article{tan2018sim,
+  title={Sim-to-real: Learning agile locomotion for quadruped robots},
+  author={Tan, Jie and Zhang, Tingnan and Coumans, Erwin and Iscen, Atil and Bai, Yunfei and Hafner, Danijar and Bohez, Steven and Vanhoucke, Vincent},
+  BOOKTITLE = {Proceedings of Robotics: Science and Systems},
+  DOI = {10.15607/RSS.2018.XIV.010},
+  year={2018}
 }
 @article{altendorfer2001rhex,
   title={Rhex: A biologically inspired hexapod runner},
@@ -1088,7 +1132,14 @@ doi={10.1109/LRA.2019.2929984},
   booktitle = {IEEE {International} {Conference} on {Intelligent} {Robots} and {Systems} (IROS)},
   year= {2015}
 }
-
+@inproceedings{doerr2017model,
+  title={Model-based policy search for automatic tuning of multivariate PID controllers},
+  author={Doerr, Andreas and Nguyen-Tuong, Duy and Marco, Alonso and Schaal, Stefan and Trimpe, Sebastian},
+  booktitle={2017 IEEE International Conference on Robotics and Automation (ICRA)},
+  pages={5295--5301},
+  year={2017},
+  organization={IEEE}
+}
 @InProceedings{chentanez2005intrinsically,
   title  = {Intrinsically motivated reinforcement learning},
   author = {Chentanez, Nuttapong and Barto, Andrew G and Singh,
@@ -1096,7 +1147,24 @@ doi={10.1109/LRA.2019.2929984},
   booktitle = {Advances in neural information processing systems},
   year= {2005}
 }
-
+@article{viereck2018learning,
+  title={Learning a structured neural network policy for a hopping task},
+  author={Viereck, Julian and Kozolinsky, Jules and Herzog, Alexander and Righetti, Ludovic},
+  journal={IEEE Robotics and Automation Letters},
+  volume={3},
+  number={4},
+  pages={4092--4099},
+  year={2018},
+  publisher={IEEE}
+}
+@inproceedings{marco2017design,
+  title={On the design of LQR kernels for efficient controller learning},
+  author={Marco, Alonso and Hennig, Philipp and Schaal, Stefan and Trimpe, Sebastian},
+  booktitle={2017 IEEE 56th Annual Conference on Decision and Control (CDC)},
+  pages={5193--5200},
+  year={2017},
+  organization={IEEE}
+}
 @InProceedings{cnops2015basin,
   title  = {The basin of attraction for running robots: Fractals,
  multistep trajectories, and the choice of control},
@@ -1105,7 +1173,14 @@ doi={10.1109/LRA.2019.2929984},
   pages={1586--1591},
   year= {2015}
 }
-
+@inproceedings{peng2017learning,
+  title={Learning locomotion skills using deeprl: Does the choice of action space matter?},
+  author={Peng, Xue Bin and van de Panne, Michiel},
+  booktitle={Proceedings of the ACM SIGGRAPH/Eurographics Symposium on Computer Animation},
+  pages={12},
+  year={2017},
+  organization={ACM}
+}
 @InProceedings{colgate1994factors,
   title  = {Factors affecting the z-width of a haptic display},
   author = {Colgate, J Edward and Brown, J Michael},
@@ -1120,11 +1195,26 @@ year={2018},
 volume={},
 number={},
 pages={1771-1778},
-keywords={Bayes methods;control engineering computing;gait analysis;learning (artificial intelligence);legged locomotion;motion control;optimisation;Bayesian optimization;1-dimensional space;feature transformation;different walking controllers;ATRIAS bipedal robot;nonhumanoid robot morphologies;human-inspired neuromuscular controller;human walking;16-dimensional locomotion controller;bipedal locomotion;black-box data-efficient optimization scheme;data-efficient learning techniques;legged locomotion;simulation transfer;expert-designed heuristics;robotics controllers;domain knowledge;Hardware;Legged locomotion;Optimization;Kernel;Transforms;Measurement},
 doi={10.1109/ICRA.2018.8461237},
 month={May}
 }
-
+@article{levine2018learning,
+  title={Learning hand-eye coordination for robotic grasping with deep learning and large-scale data collection},
+  author={Levine, Sergey and Pastor, Peter and Krizhevsky, Alex and Ibarz, Julian and Quillen, Deirdre},
+  journal={The International Journal of Robotics Research},
+  volume={37},
+  number={4-5},
+  pages={421--436},
+  year={2018},
+  publisher={SAGE Publications Sage UK: London, England}
+}
+@inproceedings{ivanovic2019barc,
+  title={Barc: Backward reachability curriculum for robotic reinforcement learning},
+  author={{Ivanovic}, {Boris} and {Harrison}, {James} and {Sharma}, {Apoorva} and {Chen}, {Mo} and {Pavone}, {Marco}},
+  booktitle={2019 IEEE International Conference on Robotics and Automation (ICRA)},
+  pages={15--21},
+  year={2019},
+}
 @article{holmes2006dynamics,
   title={The dynamics of legged locomotion: Models, analyses, and challenges},
   author={Holmes, Philip and Full, Robert J and Koditschek, Dan and Guckenheimer, John},
@@ -1145,17 +1235,6 @@ month={May}
   pages={3325--3332},
   publisher = {The Company of Biologists Ltd}
 }
-
-###Article{full1999templates,
-  title  = {Templates and anchors: neuromechanical hypotheses of
- legged locomotion on land},
-  author = {Full, Robert J and Koditschek, Daniel E},
-  journal= {Journal of experimental biology},
-  volume = {202},
-  year= {1999},
-  publisher = {The Company of Biologists Ltd}
-}
-
 @article{gan2013simplistic,
   title  = {A simplistic model for quadrupedal walking and trotting},
   author = {Gan, Zhenyu and Remy, C David},
@@ -1214,6 +1293,14 @@ month={May}
  Claudio},
   booktitle = {IEEE 17th International Conference on Humanoid Robots},
   year= {2017}
+}
+@inproceedings{theodorou2010reinforcement,
+  title={Reinforcement learning of motor skills in high dimensions: A path integral approach},
+  author={Theodorou, Evangelos and Buchli, Jonas and Schaal, Stefan},
+  booktitle={2010 IEEE International Conference on Robotics and Automation},
+  pages={2397--2403},
+  year={2010},
+  organization={IEEE}
 }
 @article{chevallereau2005asymptotically,
   title={Asymptotically stable running for a five-link, four-actuator, planar bipedal robot},
@@ -1507,7 +1594,14 @@ month={Dec}
   publisher = {ACM}
 }
 
-# TODO
+@inproceedings{lowrey2018reinforcement,
+  title={Reinforcement learning for non-prehensile manipulation: Transfer from simulation to physical system},
+  author={Lowrey, Kendall and Kolev, Svetoslav and Dao, Jeremy and Rajeswaran, Aravind and Todorov, Emanuel},
+  booktitle={2018 IEEE International Conference on Simulation, Modeling, and Programming for Autonomous Robots (SIMPAR)},
+  pages={35--42},
+  year={2018},
+  organization={IEEE}
+}
 @article{peng2017sim,
   title  = {Sim-to-real transfer of robotic control with dynamics
  randomization},
