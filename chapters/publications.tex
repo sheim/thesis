@@ -15,7 +15,7 @@ The recommended reading order is:
 The first paper is an empirical study that captures much of the motivation. A 2-minute video synopsis of this paper available online at \url{https://youtu.be/6iH5E3LrYh8}. The second paper formalizes viable sets in state-action space, which is the core theoretical contribution of the thesis. The third paper builds on the second to formalize model-free safe learning. The fourth paper is an offshoot of the second and points out a minor, counterintuitive result.
 
 \section{Papers and Contributions}
-For each paper, the contribution of co-author is listed in table format, as well as a more detailed description of my contributions. Deciding on the contribution split is a subjective and imprecise exercise. I asked each student co-author to first consider independently how they thought contributions should be split. We then compared notes, discussed it together, and agreed to the description I have written here. This was presented to the principal investigator (PI) co-authors for their approval. To reflect the imprecise nature of these descriptions, I do not use a percentage split but rather a descriptive word: major, substantial, minor, or negligible. As a rule of thumb, \emph{major} indicates a contribution that is central to the paper, \emph{substantial} indicates a critical contribution, without which the paper would probably not have been submitted, \emph{minor} indicates an important contribution, without which the paper quality would be significantly diminished and possibly not accepted, and finally \emph{negligible} indicates contributions that improved the paper, but did not significantly change the form or content.
+For each paper, the contribution of co-author is listed in table format, as well as a more detailed description of my contributions. Deciding on the contribution split is a subjective and imprecise exercise. I asked each student co-author to first consider independently how they thought contributions should be split. We then compared notes, discussed it together, and agreed to the description I have written here. This was presented to the principal investigator (PI) co-authors for their approval. To reflect the imprecise nature of these descriptions, I do not use a percentage split but rather a descriptive word: major, substantial, minor, or \negligible. As a rule of thumb, \emph{major} indicates a contribution that is central to the paper, \emph{substantial} indicates a critical contribution, without which the paper would probably not have been submitted, \emph{minor} indicates an important contribution, without which the paper quality would be significantly diminished and possibly not accepted, and finally \emph{\negligible} indicates contributions that improved the paper, but did not significantly change the form or content.
 
 \subsection{Shaping in Practice}
 \textbf{Abstract: }
@@ -33,7 +33,7 @@ I helped form the initial idea of demonstrating shaping with a mechanical change
 \multicolumn{1}{|l|}{S.H.} & Major & Major & Major & Major & Substantial \\ \hline
 \multicolumn{1}{|l|}{F.R.} & Minor & Major & Minor & Substantial & Substantial \\ \hline
 \multicolumn{1}{|l|}{A.S.} & Minor & Major & Minor & Minor & Substantial \\ \hline
-\multicolumn{1}{|l|}{A.S. (PI)} & Minor & Negligible & Negligible & Minor & Substantial \\ \hline
+\multicolumn{1}{|l|}{A.S. (PI)} & Minor & \Negligible & \Negligible & Minor & Substantial \\ \hline
 \end{tabular}
 \end{table}
 
@@ -58,7 +58,7 @@ I formed the concepts, developed them via numerical experimentation, and then fo
 \cline{2-6}
  \textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
 \multicolumn{1}{|l|}{S.H.} & Major & Major & Major & Major & Major \\ \hline
-\multicolumn{1}{|l|}{A.S. (PI)} & Negligible & Negligible & Negligible & Minor & Minor \\ \hline
+\multicolumn{1}{|l|}{A.S. (PI)} & \Negligible & \Negligible & \Negligible & Minor & Minor \\ \hline
 \end{tabular}
 \end{table}
 % \emph{Alexander Spr\"{o}witz} kept track of the project progress, and gave advice on choosing deadlines and the venue for publication. Alexander proof-read the paper, and gave advice for and proof-read the response to reviewers.
@@ -72,7 +72,7 @@ This paper builds on the mathematical objects introduced in \emph{Beyond Basins 
 % To the best of my knowledge, this if the first formalization of a safety measure that directly relates dynamics to a set of failure states, and can be learned directly by sampling, without model assumptions. Other work on safe learning typically assumes that a safety function can be sampled directly; instead, after sampling a state-action pair, we receive only the new state and a boolean indicating whether the state is in the failure set or not.
 %Due to the generality of this setting, this approach can be directly combined with any RL approach. How to combine this with RL, and also how to combine this with model-learning, is a research direction with a lot of potential.
 \textbf{Venue: }
-the Conference on Robot Learning (CoRL) is a young conference: this publication appears in its third edition. It is loosely modeled after the Robotics Science and Systems (RSS) conference, another small, single-track conference known for its high-quality and low acceptance rate; in the third edition of CoRL, 112 papers were selected out of 398 submissions. CoRL has so far managed to maintain these standards, and papers from previous editions quite consistently have high citation counts after only 1-2 years. This high citation count can be partly attributed to the high standards of the conference, and partly to the current popularity (and therefore high publication rate) of machine learning. \\
+The Conference on Robot Learning (CoRL) is a young conference: this publication appears in its third edition. It is loosely modeled after the Robotics Science and Systems (RSS) conference, another small, single-track conference known for its high-quality and low acceptance rate; in the third edition of CoRL, 112 papers were selected out of 398 submissions. CoRL has so far managed to maintain these standards, and papers from previous editions quite consistently have high citation counts after only 1-2 years. This high citation count can be partly attributed to the high standards of the conference, and partly to the current popularity (and therefore high publication rate) of machine learning. \\
 \textbf{Individual Contributions: }
 I formed the concept and developed the theoretical groundwork in a deterministic setting, including the convergence proof. I wrote the code framework for computing viable sets, as well as all simulations. I recognized the possibility of extending this to a probabilistic setting, and reached out to Alexander von Rohr to help on this aspect. I helped work out the details of modeling the measure as a Gaussian process, and how to use this probabilistic model to gather samples. I helped debug and test the learning algorithm and tune hyperparameters. I wrote the majority of the paper, proof-read the paper, and helped make visualizations. I managed the milestones and overall timeline for the project and helped plan milestones for the project.
 \begin{table}[h!]
@@ -81,8 +81,8 @@ I formed the concept and developed the theoretical groundwork in a deterministic
 \textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
 \multicolumn{1}{|l|}{S.H.} & Major & Major & Major & Major & Major \\ \hline
 \multicolumn{1}{|l|}{A.v.R.} & Minor & Major & Major & Substantial & Substantial \\ \hline
-\multicolumn{1}{|l|}{S.T.} & Negligible & Negligible & Negligible & Minor & Minor \\ \hline
-\multicolumn{1}{|l|}{A.B.S.} & Negligible & Negligible & Negligible & Negligible & Minor \\ \hline
+\multicolumn{1}{|l|}{S.T. (PI)} & \Negligible & \Negligible & \Negligible & Minor & Minor \\ \hline
+\multicolumn{1}{|l|}{A.B.S. (PI)} & \Negligible & \Negligible & \Negligible & \Negligible & Minor \\ \hline
 \end{tabular}
 \end{table}
 \\
@@ -98,7 +98,7 @@ Despite impressive results using reinforcement learning to solve complex problem
 I find the core result of this work interesting since, although not directly useful, it is particularly counterintuitive, and it gives a simple, concrete example that highlights why it is a good practice to place a lot more variation in state initializations. This is relevant since this aspect is very often completely ignored when designing experimental set-ups.
 \\
 \textbf{Venue: }
-the IEEE international conference on Simulation, Modeling, and Programming for Autonomous Robots (SIMPAR) is a small (27 accepted papers that year), bi-annual conference typically organized in proximity of a major robotics conference: in 2018 it was held in Brisbane on the week preceding ICRA (also in Brisbane, and the venue of publication 1). The theme for this edition was 'Leveraging Simulation in the Hardware and Software Design of Autonomous Robots'. The overall quality of publications appeared to me to be decent, neither particularly high nor low.
+The IEEE international conference on Simulation, Modeling, and Programming for Autonomous Robots (SIMPAR) is a small (27 accepted papers that year), bi-annual conference typically organized in proximity of a major robotics conference: in 2018 it was held in Brisbane on the week preceding ICRA (also in Brisbane, and the venue of publication 1). The theme for this edition was 'Leveraging Simulation in the Hardware and Software Design of Autonomous Robots'. The overall quality of publications appeared to me to be decent, neither particularly high nor low.
 \\
 \textbf{Individual Contributions: }
 I formed and developed the concept. I implemented code and carried out experiments and analysis. I chose the venue of publication, wrote the paper, and managed work packages and milestones for the project. 
@@ -107,7 +107,7 @@ I formed and developed the concept. I implemented code and carried out experimen
 \cline{2-6}
  \textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
 \multicolumn{1}{|l|}{S.H.} & Major & Major & Major & Major & Major \\ \hline
-\multicolumn{1}{|l|}{Alexander} & Negligible & Negligible & Negligible & Minor & Minor \\ \hline
+\multicolumn{1}{|l|}{A.S. (PI)} & \Negligible & \Negligible & \Negligible & Minor & Minor \\ \hline
 \end{tabular}
 \end{table}
 % \emph{Alexander Spr\"{o}witz} kept track of the project progress, and gave advice on choosing deadlines and the venue for publication. Alexander proof-read the paper, and gave advice for and proof-read the response to reviewers.
