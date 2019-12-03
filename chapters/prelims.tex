@@ -84,20 +84,21 @@ Virtual model control~\cite{pratt2001virtual,renjewski2015exciting} provides a s
 
 \subsection{Optimal Control for legged locomotion}
 Optimal control offers a more explicit approach to consider the natural dynamics in the control law.
-The setting is to find a policy $u_k = \pi(x_k)$  which minimizes a cost function given a dynamical system $x_{k+1} = f(x_k, u_k)$:
+The setting is to find a policy $u_k = \pi(x_k)$  which minimizes the total cost-to-go function $J$ given a dynamical system $x_{k+1} = f(x_k, u_k)$:
 \begin{align*}
-J(x_0) & = g_N(x_N) + \sum_{k=0}^{N-1}g(x_k, u_k) \\
-\text{s.t. } x_{k+1} & = f(x_k, u_k)
+\text{find } & u_k = \pi(x_k) \\
+\text{such that } & J^*(x_0) = \min_u \left[g_N(x_N) + \sum_{k=0}^{N-1}g(x_k, u_k)\right] \\
+\text{subject to } & x_{k+1} = f(x_k, u_k)
 \end{align*}
-where $J$ is the total cost accumulated between $x_0$ and $x_N$, $g_N$ is the final cost of being in $x_N$, and $g(x_k, u_k)$ is the cost incurred for applying the control input $u_k$ from state $x_k$.
+where $J*$ is the optimal cost accumulated between $x_0$ and $x_N$, $g_N$ is the final cost of being in $x_N$, and $g(x_k, u_k)$ is the cost incurred for applying the control input $u_k$ from state $x_k$.
 This formulation explicitly takes the dynamics of the system into consideration, since the solution must be consistent with the dynamics $f(x_k, u_k)$.
-One of the core insights in optimal control is the \emph{principle of optimality}: the fact that any subtrajectory of an optimal trajectory is itself optimal for its own starting and ending points.
+One of the core insights in optimal control is the \emph{principle of optimality}: the fact that any subtrajectory of an optimal trajectory is itself optimal for its own starting and ending states.
 The optimal control problem can therefore be to be split into several small steps, and each of these can be solved individually.
-This principle is leveraged in the Bellman equation (or its continuous-time equivalent, the Hamilton-Jacobi-Belmman equation):
+This principle is leveraged in the Bellman equation (or its continuous-time equivalent, the Hamilton-Jacobi-Bellman equation):
 \begin{equation}\label{eq:bellman}
 J^*(x_k) = \min_u\left[g(x_k,u_k) + J^*(f(x_k, u_k)) \right]
 \end{equation}
-where $J^*$ is the optimal cost-to-go function\footnote{This is often called the value function $V$ in the RL literature.} from any given state. If this function is known, finding an optimal controller is reduced to a one-step lookahead optimization.
+where $J^*$ is the optimal cost-to-go function from any given state. If this function is known, finding an optimal controller is reduced to a one-step lookahead optimization.
 To find $J^*$, we can simply use the Bellman equation as an update rule, which leads to the \emph{dynamic programming} algorithm. A typical update will start at the terminal state $x_N$ (for which the cost-to-go is trivial to compute), and then apply these updates by backing out of the terminal state. This process will be repeated until $J^*$ has converged. Once $J^*$ has converged, a control policy which greedily follows eq. \ref{eq:bellman} will be optimal from any state. \par
 The main caveat with this approach is that it does not scale well with dimensionality. Perhaps the most popular optimal control approaches used in legged locomotion today is trajectory optimization: in this setting, give up on global optimality and instead seek trajectories which are at least locally optimal.
 For the interested reader, I recommend~\cite{kelly2017introduction}. Without going into details, there are two main families of trajectory optimization: shooting methods and transcription methods.
