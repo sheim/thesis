@@ -8,7 +8,7 @@ The resulting mathematical objects open a path to new tools, including tools to 
 Each paper is attached in the appendix. The thesis itself serves to facilitate reading the papers and understanding their importance in the broader context. The thesis is organized as follows: in Chapter \ref{chap:intro} (this chapter), I introduce the overall motivation and objectives.
 Chapter \ref{chap:prelims} concisely covers the background knowledge and related work.
 Chapter \ref{chap:pubs} summarizes each publication, my contributions, and suggests an order in which to read them.
-Finally, in Chapter \ref{chap:discussion}, I discuss the contributions of publications in relation to the overall theme and motivation and the open challenges they raise.
+Finally, in Chapter \ref{chap:discussion}, I discuss the relevance of the publications in relation to the overall theme and motivation and the open challenges they raise.
 
 \section{Overall Motivation}
 
@@ -22,7 +22,7 @@ Controllers are typically designed based on a model of the robot and the world. 
 Even with a very well chosen model and excellent system identification, the accuracy of the model used will decay over time.
 The robot's dynamics will change due to wear and tear, and the world the robot moves in will change.
 In realistic field deployments, it will become common for the robot to be used and even modified in unforeseen ways.
-Robustness will also help lower manufacturing costs since performance will be more tolerant of low-precision manufacturing.
+Robustness will also help lower manufacturing costs since performance will be more tolerant of imprecise manufacturing.
 Finally, as will be discussed in more detail in this thesis, robustness plays a crucial role in enabling \emph{learning} control.
 \par
 Machine learning, especially reinforcement learning, is gaining a lot of traction in the community of robotics. Learning control directly from data can circumvent the inaccuracies of models, and can also allow the robot to adapt to changes in the real world continuously.
@@ -34,8 +34,8 @@ A less studied aspect of the same problem is how the system itself should be des
 \emph{`How can we enable robots to learn control model-free and directly on hardware?'} \par
 I believe robots of the future will be able to effectively leverage models, and therefore make extensive use of both simulation and optimal control.
 Nevertheless, I have chosen a guiding question that explicitly excludes these two tools for a very deliberate reason: it moves the focus to aspects that I believe have not received sufficient attention. \par
-First and foremost is the necessity for robustness. The complete lack of a model heavily emphasizes this need. Indeed, the absence of a model can be loosely thought of as having a model over which we have absolutely no certainty.
+First and foremost is the necessity for robustness. Indeed, the absence of a model can be loosely thought of as having a model over which we have absolutely no certainty.
 Learning directly on hardware also emphasizes the need for robustness, as failures become a significant problem. Failures can cause damage to the robot or world, often require time-consuming resets, and perhaps most importantly, they typically do not provide rich information. \par
-Second, as anyone who has worked on real robots can confirm, the hardware design and implementation immediately take a central role. Robots that are appropriately designed and well manufactured are a lot easier to work with and greatly alleviate a control designer's work\footnote{I recently spoke with a researcher at Google Brain, where they have 5 Minitaur quadruped robots, some of which were produced in different batches. Due to the differences in production, they behave slightly differently, and the researcher confirmed they have their favorites for testing learning algorithms.}. When learning control, it is reasonable to expect a learning agent to reap the same benefits, even though we cannot fully describe what these benefits are. \par
+Second, as anyone who has worked on physical robots can confirm, the hardware design and implementation immediately take a central role. Robots that are appropriately designed and well manufactured are a lot easier to work with and greatly alleviate a control designer's work\footnote{I recently spoke with a researcher at Google Brain, where they have 5 Ghost Robotics Minitaur quadruped robots, some of which were produced in different batches. Due to the differences in production, they behave slightly differently, and the researcher confirmed they have their favorites for testing learning algorithms.}. When learning control, it is reasonable to expect a learning agent to reap the same benefits, even though we cannot fully describe what these benefits are. \par
 
 More specifically, we will aim to formalize an understanding of how morphology and system design influence how easy it is to design or learn a control policy. Furthermore, we will aim for a more principled understanding of how a learning agent can learn despite failures, and perhaps more importantly, directly reason about failure.

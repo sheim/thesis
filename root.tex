@@ -22,9 +22,10 @@
 
 % Biber
 \usepackage[backend=biber,      % replace bibtex with biber
-    style=ieee,
-    bibstyle=ieee,              % write literature lists in IEEE style
+    % style=ieee,
+    % bibstyle=ieee,              % write literature lists in IEEE style
     % citestyle=numeric-comp,     % \cite uses a numeric key
+    maxcitenames=2,
     sortcites=true,   
     giveninits=true,            % use caps    
     backref=false
@@ -34,6 +35,7 @@
 \newcommand{\eom}{EoM}
 \newcommand{\poincare}{Poincar\'{e} }
 \newcommand{\negligible}{minimal }
+\newcommand{\negdot}{minimal}
 \newcommand{\Negligible}{Minimal }
 
 \title{Viability in State-Action Space: \\

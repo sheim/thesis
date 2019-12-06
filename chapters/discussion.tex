@@ -1,6 +1,6 @@
 % !TEX root = ../root.tex
 
-\chapter{Discussion}
+\chapter{Discussion}\label{chap:discussion}
 % Results and discussion, 15-25 pages
 
 For a detailed discussion specific to the results of each paper, we refer to the papers themselves. Here we will discuss the common themes, the connections between them, and what the results of this thesis mean for future work.
@@ -20,7 +20,7 @@ A different approach, which is mentioned in~\cite{heim2019learnable}, is to use 
 
 A second reason why robots should be designed to allow failures is illustrated in~\cite{heim2018unviable}. The core concept is that systems often have large sets of unviable states: states which have not failed yet, but are doomed to fail within finite time. While marching towards failure, the learning agent can still explore and collect informative samples that are useful for the learning process - if it can survive the failure. For this to be useful, two requirements should be fulfilled: first, information relevant to the learning process should be available in unviable states. This will depend largely on the reward function. Second, a well-designed system will not fail abruptly, but rather be able to continue exploration for as long as possible, delaying the inevitable failure. Fortunately, this requirement often goes hand in hand with improving robustness, as discussed above. For example, starting with soft gains on an impedance controller will allow a robot to stumble and fall more slowly than a controller that is aggressively tuned for performance.
 
-\section{Leveraging dynamics models} \label{chap:discussion}
+\section{Leveraging dynamics models}
 I have focused on model-free methods, for a very deliberate reason: I believe that model-based optimal control is a fantastically powerful tool, and it is too tempting to try to reformulate any problem as an optimization problem.
 At the same time, I believe that robustness is of paramount importance and has been overshadowed by the optimality perspective of dynamics.
 Taking a completely (or nearly) model-free approach forces us to deal directly with robustness, as we have no assumed structure to exploit.
