@@ -2,4 +2,12 @@
 
 \chapter*{Zusammenfassung}
 \addcontentsline{toc}{chapter}{Zusammenfassung}
-Ackenschmackenfracken.
+\emph{Wie können wir Robotern ermöglichen, modellfrei und direkt auf der Hardware zu lernen?} \par
+
+Das maschinelle Lernen nimmt als Standardwerkzeug im Arsenal des Robotikers seinen Platz ein. Es gibt jedoch einige offene Fragen, wie man die Kontrolle über physikalische Systeme lernen kann. Diese Arbeit gibt zwei Antworten auf diese motivierende Frage. \par
+Das erste ist ein formales Mittel, um die inhärente Robustheit eines gegebenen Systemdesigns zu quantifizieren, bevor der Controller oder der Lernende entworfen wird. Dies unterstreicht die Notwendigkeit, sowohl das Hard- als auch das Software-Design eines Roboters zu berücksichtigen, da beide Aspekte in der Systemdynamik untrennbar miteinander verbunden sind. \par
+Die zweite ist die Formalisierung einer Sicherheitsmaßnahme, die modellfrei erlernt werden kann. Intuitiv zeigt diese Maßnahme an, wie leicht ein Roboter Ausfälle vermeiden kann. Auf diese Weise können Roboter unbekannte Umgebungen erkunden und gleichzeitig Ausfälle vermeiden. \par
+Die wichtigsten Beiträge dieser Dissertation basieren sich auf der Viabilitätstheorie. Viabilität bietet eine alternative Sichtweise auf dynamische Systeme: Anstatt sich auf die Konvergenzeigenschaften eines Systems in Richtung Gleichgewichte zu konzentrieren, wird der Fokus auf Menge von Fehlerzuständen und die Fähigkeit des Systems, diese zu vermeiden, verlagert. Diese Sichtweise eignet sich besonders gut für das Studium der Lernkontrolle an Robotern, da Stabilität im Sinne einer Konvergenz während des Lernprozesses selten gewährleistet werden kann. \par
+Der Begriff der Lebensfähigkeit wird formal auf den Staat-Aktion-Raum erweitert, mit viabile Mengen von Staat-Aktionspaaren. Eine über diese Mengen definierte Maßnahme ermöglicht eine quantifizierte Bewertung der Robustheit, die für die Familie aller fehlervermeidenden Kontrollrichtlinien gilt, und ebnet den Weg für ein sicheres, modellfreies Lernen. \par
+Die Arbeit beinhaltet auch zwei kleinere Beiträge. Der erste kleine Beitrag ist eine empirische Demonstration der Formgebung durch ausschließliche Modifikation der Systemdynamik. Diese Demonstration verdeutlicht die Bedeutung der Robustheit gegenüber Fehlern für die Lernkontrolle: Ausfälle können nicht nur Schäden verursachen, sondern liefern in der Regel auch keine nützlichen Gradienteninformationen für den Lernprozess. \par
+Der zweite kleine Beitrag ist eine Studie über die Wahl der Zustandsinitialisierungen. Entgegen der Intuition und der üblichen Praxis zeigt diese Studie, dass es zuverlässiger sein kann, das System gelegentlich aus einem Zustand zu initialisieren, der bekanntermaßen unkontrollierbar ist. 

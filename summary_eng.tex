@@ -2,4 +2,12 @@
 
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
-Dynamical systems are everywhere. 
+\emph{`How can we enable robots to learn control model-free and directly on hardware?'} \par
+% This is the driving question of this thesis.
+Machine learning is taking its place as a standard tool in the roboticist's arsenal. However, there are several open questions with regard to how to learn control on physical systems. This thesis provides two answers to this motivating question. \par
+The first is a formal means to quantify the inherent robustness of a given system design, prior to designing the controller or learning agent. This emphasizes the need to consider both the hardware and software design of a robot, as both aspects are inseparably intertwined in the system dynamics. \par
+The second is the formalization of a safety-measure which can be learned model-free. Intuitively, this measure indicates how easily a robot can avoid failure. This enables robots to explore unknown environments while avoiding failures. \par
+The main contributions of this dissertation are based on viability theory. Viability provides an alternative view of dynamical systems: instead of focusing on a system's convergence properties towards equilibria, the focus is shifted towards sets of failure states and the system's ability to avoid these. This view is particularly well suited to studying learning control in robots, since stability in the sense of convergence can rarely be guaranteed during the learning process. \par
+The notion of viability is formally extended to state-action space, with viable sets of state-action pairs. A measure defined over these sets allows a quantified evaluation of robustness valid for the family of all failure-avoiding control policies, and also paves the way for enabling safe model-free learning. \par
+The thesis also includes two minor contributions. The first minor contribution is an empirical demonstration of shaping by exclusively modifying the system dynamics is shown. This demonstration highlights the importance of robustness to failures for learning control: not only can failures cause damage, but they typically do not provide useful gradient information for the learning process. \par
+The second minor contribution is a study on the choice of state initializations. Counter to intuition and common practice, this study shows it can be more reliable to occasionally initialize the system from a state that is known to be uncontrollable. 
