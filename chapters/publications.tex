@@ -7,15 +7,15 @@ This cumulative thesis is based on the four first author, peer-reviewed publicat
 \section{Overview}
 The recommended reading order is:
 \begin{enumerate}
-    \item Shaping in Practice: Training Wheels to Learn Fast Hopping Directly in Hardware, \emph{Steve Heim, Felix Ruppert, Alborz Sarvestani, and Alexander Spr\"{o}witz}, IEEE ICRA 2018
-    \item Beyond Basins of Attraction: Quantifying Robustness of Natural Dynamics \emph{Steve Heim and Alexander Spr\"{o}witz}, IEEE T-RO 2019
+    \item Shaping in Practice: Training Wheels to Learn Fast Hopping Directly in Hardware, \emph{Steve Heim, Felix Ruppert, Alborz Sarvestani, and Alexander Spr\"{o}witz}, ICRA 2018
+    \item Beyond Basins of Attraction: Quantifying Robustness of Natural Dynamics \emph{Steve Heim and Alexander Spr\"{o}witz}, T-RO 2019
     \item A Learnable Safety Measure \emph{Steve Heim, Alexander von Rohr, Sebastian Trimpe, and Alexander Spr\"{o}witz}, CoRL 2019
-    \item Learning from Outside the Viability Kernel: Why we should build Robots that can Fall with Grace \emph{Steve Heim and Alexander Spr\"{o}witz}, IEEE SIMPAR 2019
+    \item Learning from Outside the Viability Kernel: Why we should build Robots that can Fall with Grace \emph{Steve Heim and Alexander Spr\"{o}witz}, SIMPAR 2019
 \end{enumerate}
 The first paper is an empirical study that captures much of the motivation. A 2-minute video synopsis of this paper available online at \url{https://youtu.be/6iH5E3LrYh8}. The second paper formalizes viable sets in state-action space, which is the core theoretical contribution of the thesis. The third paper builds on the second to formalize model-free safe learning. The fourth paper is an offshoot of the second and points out a minor, counterintuitive result.
 
 \section{Papers and Contributions}
-For each paper, the contributions of co-authors are listed in table format, as well as a more detailed description of my contributions. Deciding on the contribution split is a subjective and imprecise exercise. I asked each student co-author to first consider independently how they thought contributions should be split. We then compared notes, discussed it together, and agreed to the description I have written here. This was presented to the principal investigator (PI) co-authors for their approval. To reflect the imprecise nature of these descriptions, I do not use a percentage split but rather a descriptive word: major, substantial, minor, or \negdot. As a rule of thumb, \emph{major} indicates a contribution that is central to the paper, \emph{substantial} indicates a critical contribution, without which the paper would probably not have been submitted, \emph{minor} indicates an important contribution, without which the paper quality would be significantly diminished and possibly not accepted, and finally \emph{\negligible} indicates contributions that improved the paper, but did not significantly change the form or content.
+For each paper, the contributions of co-authors are listed in table format, as well as a more detailed description of my contributions. Deciding on the contribution split is a subjective and imprecise exercise. I asked each student co-author to first consider independently how they thought contributions should be split. We then compared notes, discussed it together, and agreed to the description I have written here. This was presented to the principal investigator (PI) co-authors for their approval. To reflect the imprecise nature of these descriptions, I do not use a percentage split but rather a descriptive word: central, major, substantial, or \negdot. As a rule of thumb, \textbf{central} indicates a contribution that is central to the paper, \textbf{major} indicates a critical contribution, without which the paper would probably not have been submitted, \textbf{substantial} indicates an important contribution, without which the paper quality would be significantly diminished and possibly not accepted, and finally \textbf{\negligible} indicates contributions that improved the paper, but did not significantly change the form or content.
 
 \subsection{Shaping in practice}
 \textbf{Abstract: }
@@ -23,17 +23,17 @@ Learning instead of designing robot controllers can greatly reduce engineering e
 \textbf{Commentary: }
 One of the most important take-aways from this empirical study is that failures are common and typically provide very little useful information to learn from. When considering safety in robot learning, the usual motivations are avoiding damage (to the robot or the world) and time-consuming resets and repairs. Here we see, however, that it is also important in order to learn more reliably. \\
 \textbf{Venue: }
-The IEEE International Conference for Robotics and Automation (ICRA) is the largest and one of the most important conferences in robotics, alongside the International Conference on Intelligent Robots and Systems (IROS). Publications in these venues often have a major impact, and they are considered a top publication venue for the field of robotics. However, the variance on the quality of publications is also high, presumably due to the high variance in reviewing quality. \\
+The IEEE International Conference for Robotics and Automation (ICRA) is the largest and one of the most important conferences in robotics, alongside the International Conference on Intelligent Robots and Systems (IROS). Publications in these venues often have a high impact, and they are considered a top publication venue for the field of robotics. However, the variance on the quality of publications is also high, presumably due to the high variance in reviewing quality. \\
 \textbf{Individual Contributions: }
 I helped form the initial idea of demonstrating shaping with a mechanical change (training wheels), helped decide how to implement it, wrote the code for the locomotion controller, the learning algorithm, and code to process, analyze, and visualize the data. I conducted a large portion of experiments and wrote the paper, except for an excerpt describing the hardware. I took part in regular team meetings, and helped plan and adjust milestones throughout the project.
 \begin{table}[h!]
 \begin{tabular}{l|l|l|l|l|l|}
 \cline{2-6}
  \textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
-\multicolumn{1}{|l|}{S.H.} & Major & Major & Major & Major & Substantial \\ \hline
-\multicolumn{1}{|l|}{F.R.} & Minor & Major & Minor & Substantial & Substantial \\ \hline
-\multicolumn{1}{|l|}{A.S.} & Minor & Major & Minor & Minor & Substantial \\ \hline
-\multicolumn{1}{|l|}{A.S. (PI)} & Minor & \Negligible & \Negligible & Minor & Substantial \\ \hline
+\multicolumn{1}{|l|}{S.H.} & Central & Central & Central & Central & Major \\ \hline
+\multicolumn{1}{|l|}{F.R.} & Substantial & Central & Substantial & Major & Major \\ \hline
+\multicolumn{1}{|l|}{A.S.} & Substantial & Central & Substantial & Substantial & Major \\ \hline
+\multicolumn{1}{|l|}{A.S. (PI)} & Substantial & \Negligible & \Negligible & Substantial & Major \\ \hline
 \end{tabular}
 \end{table}
 
@@ -56,8 +56,8 @@ I formed the concepts, developed them via numerical experimentation, and formali
 \begin{tabular}{l|l|l|l|l|l|}
 \cline{2-6}
  \textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
-\multicolumn{1}{|l|}{S.H.} & Major & Major & Major & Major & Major \\ \hline
-\multicolumn{1}{|l|}{A.S. (PI)} & \Negligible & \Negligible & \Negligible & Minor & Minor \\ \hline
+\multicolumn{1}{|l|}{S.H.} & Central & Central & Central & Central & Central \\ \hline
+\multicolumn{1}{|l|}{A.S. (PI)} & \Negligible & \Negligible & \Negligible & Substantial & Substantial \\ \hline
 \end{tabular}
 \end{table}
 % \emph{Alexander Spr\"{o}witz} kept track of the project progress, and gave advice on choosing deadlines and the venue for publication. Alexander proof-read the paper, and gave advice for and proof-read the response to reviewers.
@@ -79,10 +79,10 @@ I formed the concept and developed the theoretical groundwork in a deterministic
 \begin{tabular}{l|l|l|l|l|l|}
 \cline{2-6}
 \textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
-\multicolumn{1}{|l|}{S.H.} & Major & Major & Major & Major & Major \\ \hline
-\multicolumn{1}{|l|}{A.v.R.} & Minor & Major & Major & Substantial & Substantial \\ \hline
-\multicolumn{1}{|l|}{S.T. (PI)} & \Negligible & \Negligible & \Negligible & Minor & Minor \\ \hline
-\multicolumn{1}{|l|}{A.B.S. (PI)} & \Negligible & \Negligible & \Negligible & \Negligible & Minor \\ \hline
+\multicolumn{1}{|l|}{S.H.} & Central & Central & Central & Central & Central \\ \hline
+\multicolumn{1}{|l|}{A.v.R.} & Substantial & Central & Central & Major & Major \\ \hline
+\multicolumn{1}{|l|}{S.T. (PI)} & \Negligible & \Negligible & \Negligible & Substantial & Substantial \\ \hline
+\multicolumn{1}{|l|}{A.B.S. (PI)} & \Negligible & \Negligible & \Negligible & \Negligible & Substantial \\ \hline
 \end{tabular}
 \end{table}
 \\
@@ -98,7 +98,7 @@ Despite impressive results using reinforcement learning to solve complex problem
 I find the core result of this work interesting since it is particularly counterintuitive, and it gives a simple, concrete example that highlights why it is a good practice to place a lot more variation in state initializations. This aspect is very often completely ignored when designing experimental set-ups.
 \\
 \textbf{Venue: }
-The IEEE international conference on Simulation, Modeling, and Programming for Autonomous Robots (SIMPAR) is a small (27 accepted papers that year), bi-annual conference typically organized in proximity of a major robotics conference: ICRA for this year. The theme for this edition was 'Leveraging Simulation in the Hardware and Software Design of Autonomous Robots'. The overall quality of publications appeared to me to be decent, neither particularly high nor low.
+The IEEE international conference on Simulation, Modeling, and Programming for Autonomous Robots (SIMPAR) is a small (27 accepted papers that year), bi-annual conference typically organized in proximity of a large robotics conference: ICRA for this year. The theme for this edition was 'Leveraging Simulation in the Hardware and Software Design of Autonomous Robots'. The overall quality of publications appeared to me to be decent, neither particularly high nor low.
 \\
 \textbf{Individual Contributions: }
 I formed and developed the concept, wrote the code and carried out experiments and analysis. I chose the venue of publication, wrote the paper, and managed work packages and milestones for the project. 
@@ -106,8 +106,8 @@ I formed and developed the concept, wrote the code and carried out experiments a
 \begin{tabular}{l|l|l|l|l|l|}
 \cline{2-6}
  \textbf{} & \textbf{Concept} & {\footnotesize \textbf{Implementation}} & \textbf{Analysis} & \textbf{Submission} & {\footnotesize \textbf{Management}} \\ \hline
-\multicolumn{1}{|l|}{S.H.} & Major & Major & Major & Major & Major \\ \hline
-\multicolumn{1}{|l|}{A.S. (PI)} & \Negligible & \Negligible & \Negligible & Minor & Minor \\ \hline
+\multicolumn{1}{|l|}{S.H.} & Central & Central & Central & Central & Central \\ \hline
+\multicolumn{1}{|l|}{A.S. (PI)} & \Negligible & \Negligible & \Negligible & Substantial & Substantial \\ \hline
 \end{tabular}
 \end{table}
 % \emph{Alexander Spr\"{o}witz} kept track of the project progress, and gave advice on choosing deadlines and the venue for publication. Alexander proof-read the paper, and gave advice for and proof-read the response to reviewers.
