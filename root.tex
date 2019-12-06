@@ -1,4 +1,8 @@
-\documentclass[12pt]{book}
+\documentclass[12pt,
+a4paper,
+twoside,
+numbers=noenddot,%
+cleardoublepage=empty]{book}
 \usepackage[utf8]{inputenc}
 \linespread{1.5} 
 \usepackage{graphics} % for pdf, bitmapped graphics files
@@ -11,14 +15,13 @@
 \usepackage{siunitx}
 \usepackage{textcomp}
 \usepackage[english]{babel}
-\usepackage{csquotes}
-\usepackage{subcaption}
-\usepackage[font=small, labelfont=bf]{caption}
+\usepackage[T1]{fontenc}
+% \usepackage[font=small, labelfont=bf]{caption}
 \usepackage{mathtools} % for prettier math
 \usepackage{hyperref} % clickable refs
 \usepackage{epigraph}
-
-\usepackage{epigraph}
+\usepackage{pdfpages}
+\interfootnotelinepenalty=10000
 
 % Biber
 \usepackage[backend=biber,      % replace bibtex with biber
@@ -38,20 +41,28 @@
 \newcommand{\negdot}{minimal}
 \newcommand{\Negligible}{Minimal }
 
-\title{Viability in State-Action Space: \\
-Connecting Mechanics, Control and Learning.}
-\author{Steve Heim}
-\date{September 2019}
-
 \begin{document}
-\maketitle
+\frontmatter
+\input{titlepage}
+
+% post-title page
+
+
 \input{summary_eng}
 \input{summary_de}
+\input{thanks}
 \tableofcontents
+\input{quote}
+\mainmatter
 \input{chapters/introduction}
 \input{chapters/prelims}
 \input{chapters/publications}
 \input{chapters/discussion}
 \printbibliography
-% \chapter*{Appendix of papers}
+\appendix
+\includepdf[pages=-]{papers/ICRA18HEIM.pdf}
+\includepdf[pages=-]{papers/TRO2019HEIM.pdf}
+\includepdf[pages=-]{papers/CORL19HEIM.pdf}
+\includepdf[pages=-]{papers/SIMPAR18HEIM.pdf}
+\chapter*{Appendix of papers}
 \end{document}
