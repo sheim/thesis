@@ -4,8 +4,10 @@
 % \epigraph{To tell the truth, we don't do it because it is useful but because it is amusing.}{Archibald Vivian Hill}
 This cumulative thesis presents the four first-author papers I published during my Ph.D. studies in the Dynamic Locomotion Group of the Max Planck Institute for Intelligent Systems, Stuttgart~\cite{heim2018shaping,heim2019beyond,heim2019learnable,heim2018unviable}. The main contribution of these studies is an extension of viability theory into state-action space and a measure over viable sets in this space.
 The resulting mathematical objects open a path to new tools, including tools to rigorously quantify the robustness of a system prior to controller design~\cite{heim2019beyond} and model-free safe learning~\cite{heim2019learnable}. \par
-Each paper is attached in the appendix. The thesis itself serves to facilitate reading the papers and understanding their importance in the broader context. The thesis is organized as follows: in Chapter \ref{chap:intro} (this chapter), I introduce the overall motivation and objectives.
-Chapter \ref{chap:prelims} concisely covers the background knowledge and related work.
+Each paper is attached in the appendix.
+% The thesis itself serves to facilitate reading the papers and understanding their importance in the broader context.
+The thesis is organized as follows: in Chapter \ref{chap:intro} (this chapter), I introduce the overall motivation and objectives.
+Chapter \ref{chap:prelims} concisely covers background knowledge and related work.
 Chapter \ref{chap:pubs} summarizes each publication, my contributions, and suggests an order in which to read them.
 Finally, in Chapter \ref{chap:discussion}, I discuss the relevance of the publications in relation to the overall theme and motivation and the open challenges they raise.
 
@@ -24,17 +26,17 @@ In realistic field deployments, it will become common for the robot to be used a
 Robustness will also help lower manufacturing costs since performance will be more tolerant of imprecise manufacturing.
 Finally, as will be discussed in more detail in this thesis, robustness plays a crucial role in enabling \emph{learning} control.
 \par
-Machine learning, especially reinforcement learning, is gaining a lot of traction in the community of robotics. Learning control directly from data can circumvent the inaccuracies of models, and can also allow the robot to adapt to changes in the real world continuously.
+Machine learning, especially reinforcement learning, is gaining a lot of traction in the community of robotics. Learning control directly from data can circumvent the inaccuracies of models, and can also allow the robot to continuously adapt to changes in the real world.
 A general learning algorithm could also reduce the engineering effort required to deploy a new robot, as the controller design could be automated.
-However, we still lack learning algorithms that generalize, are data-efficient, and adequately considers practical issues such as safety.
-A less studied aspect of the same problem is how the system itself should be designed. Although there is some published evidence~\cite{tedrake2005learning, randlov2000shaping} that appropriate system dynamics can significantly facilitate learning, as well as ample informal consensus\footnote{At every conference I have attended that had a mixed audience, a biologist will point out to the engineers that animals often fall, and this is important for learning. The engineers then invariably agree that robots should be designed to allow for this, and that's the end of the story.}, there have been few formal studies that rigorously show which aspects are important. This formalization is the main topic of this thesis.
+However, we still lack learning algorithms that generalize well, are data-efficient, and adequately considers practical issues such as safety. \par
+A less studied aspect of the same problem is how the system itself should be designed. Although there is some published evidence~\cite{tedrake2005learning, randlov2000shaping} that appropriate system dynamics can significantly facilitate learning, as well as ample informal consensus\footnote{At every conference I have attended that had a mixed audience, a biologist will point out to the engineers that animals often fall, and this is important for learning. The engineers then invariably agree that robots should be designed to allow for this, and that's the end of the story.}, there have been few formal studies that rigorously show show how morphology, control, and learning are connected. This formalization is the main motivation of this thesis.
 
 \section{Objectives}
 \emph{`How can we enable robots to learn control model-free and directly on hardware?'} \par
 I believe robots of the future will be able to effectively leverage models, and therefore make extensive use of both simulation and optimal control.
 Nevertheless, I have chosen a guiding question that explicitly excludes these two tools for a very deliberate reason: it moves the focus to aspects that I believe have not received sufficient attention. \par
 First and foremost is the necessity for robustness. Indeed, the absence of a model can be loosely thought of as having a model over which we have absolutely no certainty.
-Learning directly on hardware also emphasizes the need for robustness, as failures become a significant problem. Failures can cause damage to the robot or world, often require time-consuming resets, and perhaps most importantly, they typically do not provide rich information. \par
+Learning directly on hardware also emphasizes the need for robustness, as failures become a significant problem. Failures can cause damage to the robot or world, often require time-consuming resets, and perhaps most importantly, they typically do not provide rich gradient information. \par
 Second, as anyone who has worked on physical robots can confirm, the hardware design and implementation immediately take a central role. Robots that are appropriately designed and well manufactured are a lot easier to work with and greatly alleviate a control designer's work\footnote{I recently spoke with a researcher at Google Brain, where they have 5 Ghost Robotics Minitaur quadruped robots, some of which were produced in different batches. Due to the differences in production, they behave slightly differently, and the researcher confirmed they have their favorites for testing learning algorithms.}. When learning control, it is reasonable to expect a learning agent to reap the same benefits, even though we cannot fully describe what these benefits are. \par
 
 More specifically, we will aim to formalize an understanding of how morphology and system design influence how easy it is to design or learn a control policy. Furthermore, we will aim for a more principled understanding of how a learning agent can learn despite failures, and perhaps more importantly, directly reason about failure.
