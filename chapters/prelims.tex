@@ -3,7 +3,7 @@
 \chapter{Preliminaries} \label{chap:prelims}
 This chapter introduces relevant fields to help readers from potentially different backgrounds to quickly gain enough knowledge to understand the context, relevance, and importance of the contributions of each paper, in particular as related to dynamic legged locomotion. Covered are the basics of viability theory, legged locomotion, and reinforcement learning.
 
-\section{Viability Theory}
+\section{Viability theory}
 
 The core of my work is based on viability theory, first pioneered by Jean-Pierre Aubin~\cite{aubin2011viability}. The development of viability theory is largely motivated by observations of dynamical systems in nature and society, whose behavior somehow avoids chaos or pure randomness, yet never seem to settle at a resting state, an equilibrium.
 Some examples are Darwinian evolution, economics, or politics of the state. There is no equilibrium state for these systems, or at least, none that we can identify or foresee.
@@ -79,7 +79,7 @@ Furthermore, these high-level controllers \emph{exploit the natural dynamics of 
 For these reasons, I believe reduced order models such as the SLIP are excellent \emph{descriptive} models but poor \emph{prescriptive} models: they allow a deep understanding, but make for poor control targets. \par
 Virtual model control~\cite{pratt2001virtual,renjewski2015exciting} provides a slightly more relaxed approach: the low-level controller commands torques to mimic a spring-damper between two arbitrary points, usually between the hip and the foot. This approach doesn't force the system's dynamics onto the submanifold of the SLIP model but does retain the complaint behavior. It is also easy to implement, requiring only knowledge of the kinematics. However, this approach does not capture the impedance of the system, and it can be difficult to stabilize the robot trunk in more aggressive motion.
 
-\subsection{Optimal Control for legged locomotion}
+\subsection{Optimal control for legged locomotion}
 Optimal control offers a more explicit approach to embed the natural dynamics in the controller.
 The setting is to find a policy $u_k = \pi(x_k)$  which minimizes the total cost-to-go function $J$ given a dynamical system $x_{k+1} = f(x_k, u_k)$:
 \begin{align*}
